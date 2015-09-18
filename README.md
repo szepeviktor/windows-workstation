@@ -188,6 +188,7 @@ Tablet mode  ms-settings://tabletmode/
 * Firewall  Firewall.cpl
 * Power Settings  powercfg.cpl
 * Certificate Manager  certmgr.msc
+* Mouse  main.cpl (Disable mouse shadow)
 ```
 
 See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd`
@@ -200,6 +201,10 @@ See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd`
 Usage in cmd.exe:
 
 @FIXME `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont` `000`=`Meslo LG M DZ Regular`
+
+#### Cursors
+
+http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609
 
 ### Applications
 

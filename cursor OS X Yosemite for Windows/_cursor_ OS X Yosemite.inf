@@ -1,0 +1,57 @@
+; Mac OS X 10.10 Yosemite cursors for Windows XP by laccelo
+; http://laccelo.deviantart.com/art/Mac-OS-X-Yosemite-Cursors-for-Windows-XP-7-8-8-1-514893122
+
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+; -- Common Information
+
+[Scheme.Cur]
+Arrow.cur
+Help Select.cur
+Working in Background.ani
+Busy.ani
+Text.cur
+No.cur
+Vertical.cur
+Horizontal.cur
+Diagonal Resize 1.cur
+Diagonal Resize 2.cur
+Move.cur
+Link Select.cur
+Precision Select.cur
+Handwriting.cur
+Alternate Select.cur
+
+[Scheme.Txt]
+Readme.txt
+
+[Strings]
+CUR_DIR       = "Cursors\Mac OS X"
+SCHEME_NAME   = "Mac OS X Yosemite"
+pointer       = "Arrow.cur"
+help          = "Help Select.cur"
+work          = "Working in Background.ani"
+busy          = "Busy.ani"
+text          = "Text.cur"
+unavailiable  = "No.cur"
+vert          = "Vertical.cur"
+horz          = "Horizontal.cur"
+dgn1          = "Diagonal Resize 1.cur"
+dgn2          = "Diagonal Resize 2.cur"
+move          = "Move.cur"
+link          = "Link Select.cur"
+cross         = "Precision Select.cur"
+hand          = "Handwriting.cur"
+alternate     = "Alternate Select.cur"
