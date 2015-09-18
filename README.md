@@ -29,16 +29,11 @@ reg DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2E
 "C:\Program Files\Windows Defender\mpcmdrun" -removedefinitions -all
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 0 /f
 shutdown /t 0 /r
-:: Restart in Safe Mode (F8)
-ren "C:\Program Files\Windows Defender" "C:\Program Files\_Windows Defender"
+:: Reboot to KNOPPIX (F8-F8-F8)
+`ntfs-3g.real /dev/sda1 /mnt && mv "/mnt/Program Files/Windows Defender" "/mnt/Program Files/_Windows Defender"`
 :: Dummy file to prevent folder recreation
-echo. > "C:\Program Files\Windows Defender"
-:: Not working!!!
-:: :: runassystem.exe https://www.raymond.cc/blog/download/did/1620/
-:: :: Defender_Uninstaller.exe https://www.raymond.cc/blog/download/did/1984/
-:: runassystem.exe
-:: ::     Defender_Uninstaller.exe
-:: ::     cmd.exe
+`touch "/mnt/Program Files/Windows Defender"`
+:: @FIXME Remove services, drivers: WdFilter.sys, WdNisDrv.sys
 :: sc delete WinDefend
 :: sc delete WdNisSvc
 
@@ -86,20 +81,20 @@ bcdedit /set quietboot on
 bcdedit /set sos on
 ```
 
-#### Hybernation
+#### Hibernation
 
 ```batch
 powercfg -h on
 :: powercfg -h off
 powercfg.cpl
 :: Choose what the power button does
-:: Hybernate: shutdown /t 0 /f /h
+:: Hibernate: shutdown /t 0 /f /h
 ```
 
 #### Disble Windows key combinations
 
 ```batch
-reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies" /v "NoWinKeys" /t REG_DWORD /d 1
+reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1
 ```
 
 #### Show known file extensions
@@ -108,7 +103,7 @@ reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies" /v "NoWinKeys"
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
 ```
 
-#### Don't display delete confiramtion
+#### Don't display delete confirmation
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "ConfirmFileDelete" /t REG_DWORD /d 0 /f
@@ -187,15 +182,15 @@ Tablet mode  ms-settings://tabletmode/
 * Privacy  ms-settings:privacy
 
 * Computer Management  compmgmt.msc
-* Windows Features  OptionalFeatures.exe (HyperV)
+* Windows Features  OptionalFeatures.exe (Add HyperV)
 * System Properties  SystemPropertiesAdvanced.exe
 * Security Center  wscui.cpl
 * Firewall  Firewall.cpl
 * Power Settings  powercfg.cpl
-
+* Certificate Manager  certmgr.msc
 ```
 
-Source: http://winaero.com/blog/how-to-open-various-settings-pages-directly-in-windows-10/
+See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd`
 
 #### Fonts
 
@@ -204,7 +199,7 @@ Source: http://winaero.com/blog/how-to-open-various-settings-pages-directly-in-w
 
 Usage in cmd.exe:
 
-??? `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont` `000`=`Meslo LG M DZ Regular`
+@FIXME `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont` `000`=`Meslo LG M DZ Regular`
 
 ### Applications
 
@@ -217,9 +212,10 @@ Usage in cmd.exe:
 - - https://github.com/Netrics/putty-launchy-plugin/releases
 - - http://sourceforge.net/projects/tasky-launchy/files/
 - [HotKeyz](http://www.majorgeeks.com/files/details/hotkeyz.html)
+- [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
-- [openssh](http://www.mls-software.com/opensshd.html)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
+- ??? Cyg-srv? [openssh](http://www.mls-software.com/opensshd.html)
 
 Also on http://mirror.szepe.net/software/
 
@@ -238,8 +234,8 @@ Prepend: `%SystemDrive%\bin\utl;`
 
 Binary: https://eternallybored.org/misc/wget/
 
-CA: https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
-CA location: `C:/bin/utl/ca-bundle.crt`
+1. CA URL: https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
+1. CA file: `C:/bin/utl/ca-bundle.crt`
 
 ```ini
 ## C:\bin\utl\.wgetrc
@@ -280,19 +276,21 @@ Alternatives
 - http://www.extraputty.com/download.php
 - https://github.com/Maximus5/ConEmu/releases
 
-### Firefox Develoer Edition
+### Firefox Developer Edition
 
 See: [ff-dev](./ff-dev/)
+
 [Flash player](http://www.adobe.com/hu/products/flashplayer/distribution3.html)
 
-### Virtualazation
+### Virtualization
 
-[VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
+Hyper-V `virtmgmt.msc`
 [VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
+[VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
 
 ### Cygwin
 
-[Cygwin 64 bit setup](https://cygwin.com/setup-x86_64.exe)
+#### [Cygwin 64 bit setup](https://cygwin.com/setup-x86_64.exe)
 
 ```batch
 :: Mount Cygwin vdisk
@@ -309,7 +307,7 @@ rem select vdisk file="e:\cygwin64.vhd"
 rem detach vdisk
 ```
 
-Create vdisk in `diskpart`.
+#### Create vdisk in `diskpart`
 
 ```
 rem In cmd.exe:  mkdir C:\cygwin2
@@ -321,10 +319,14 @@ assign mount="C:\cygwin2"
 format label="Cygwin2" quick
 ```
 
+#### Shortcut target
+
 ```batch
 :: Start Cygwin terminal
 C:\cygwin2\bin\mintty.exe -i /Cygwin-Terminal.ico -
 ```
+
+#### Install apt-cyg
 
 ```bash
 wget -nv -P /usr/local/sbin "https://github.com/transcode-open/apt-cyg/raw/master/apt-cyg"
@@ -334,5 +336,12 @@ chmod +x /usr/local/sbin/apt-cyg
 ## Backup steps
 
 1. Run `backup-workstation.cmd` on Windows shutdown
-1. Have [hubiC client](https://hubic.com/en/downloads) back it up daily, don't keep previous versions
+1. Have [hubiC client](https://hubic.com/en/downloads) back it up daily, keep 10 versions
 
+## Remove unused drivers yearly
+
+```batch
+set "DEVMGR_SHOW_NONPRESENT_DEVICES=1"
+devmgmt.msc
+:: View / Show hidden devices
+```
