@@ -152,7 +152,9 @@ if A_TimeSinceThisHotkey < 500
 Return
 
 ^!+m::
-Run, "%ProgramFiles%\MuseScore 2\mscore.exe"
+; Still 32 bit
+ProgramFilesX86 := A_ProgramFiles . (A_PtrSize=8 ? " (x86)" : "")
+Run, "%ProgramFilesX86%\MuseScore 2\bin\MuseScore.exe"
 TrayTip, MuseScore,, 5, 16+1
 Return
 
@@ -208,6 +210,7 @@ ShutDownGui() {
 
 ShutDownIn(Seconds) {
     global BreakShutdown
+    global BinDir
     TenthSeconds := Seconds * 10
     BreakShutdown := 0
     Loop, %TenthSeconds% {
@@ -217,6 +220,9 @@ ShutDownIn(Seconds) {
         }
     }
     Gui, Destroy
+    ;Backup
+    TrayTip, Backup, Backing up ..., 120, 1+16
+    RunWait, "%BinDir%\backup\backup-workstation.cmd",, Max
     TrayTip, Shutdown, Shuting down ..., 60, 2+16
     Shutdown, 1+8
 }

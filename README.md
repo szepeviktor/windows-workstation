@@ -93,6 +93,8 @@ powercfg.cpl
 
 #### Disble Windows key combinations
 
+Not necessary.
+
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1
 ```
@@ -184,6 +186,7 @@ Tablet mode  ms-settings://tabletmode/
 * Computer Management  compmgmt.msc
 * Windows Features  OptionalFeatures.exe (Add HyperV)
 * System Properties  SystemPropertiesAdvanced.exe
+* System Performance SystemPropertiesPerformance.exe (Disable animations)
 * Security Center  wscui.cpl
 * Firewall  Firewall.cpl
 * Power Settings  powercfg.cpl
@@ -208,19 +211,20 @@ http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609
 
 ### Applications
 
-- [7-zip](http://www.7-zip.org/download.html)
-- [CCleaner](http://mirror.szepe.net/software/)
+- [7-zip 64](http://www.7-zip.org/download.html)
+- [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
-- [zpaq](http://mattmahoney.net/dc/zpaq.html)
+- [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [hubiC client](https://hubic.com/en/downloads)
 - [Launchy](http://www.launchy.net/download.php#windows)
-- - https://github.com/Netrics/putty-launchy-plugin/releases
-- - http://sourceforge.net/projects/tasky-launchy/files/
-- [HotKeyz](http://www.majorgeeks.com/files/details/hotkeyz.html)
+    - https://github.com/Netrics/putty-launchy-plugin/releases
+    - http://sourceforge.net/projects/tasky-launchy/files/
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
 - ??? Cyg-srv? [openssh](http://www.mls-software.com/opensshd.html)
+- [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
+- [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
 
 Also on http://mirror.szepe.net/software/
 
@@ -289,7 +293,7 @@ See: [ff-dev](./ff-dev/)
 
 ### Virtualization
 
-Hyper-V `virtmgmt.msc`
+Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
 [VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
 [VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
 

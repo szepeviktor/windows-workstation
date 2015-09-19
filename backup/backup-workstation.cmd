@@ -2,7 +2,8 @@
 
 :: Backup parameters
 set BACKUP_ROOT="E:\backup"
-set ENC_KEY="C:\bin\backup\enc.key"
+:: No quotes!
+set ENC_KEY=C:\bin\backup\enc.key
 :: Things to backup
 set BCK_BACKUP="C:\bin\backup"
 set BCK_AUTH="C:\bin\backup\backup-auth.files"
@@ -28,19 +29,21 @@ if NOT EXIST %BACKUP_ROOT% call :ERROR_MSG "Backup target folder not found."
 
 :: Read in encryption key
 if NOT EXIST %ENC_KEY% call :ERROR_MSG "Encryption key file is missing."
-for /F "tokens=*" %%E IN (%ENC_KEY%) do set ENC="%%E"
+for /F "tokens=*" %%E IN (%ENC_KEY%) DO set ENC="%%E"
 
-:: Backup backup scripts
+:: Backup - backup scripts
 call :ZPAQA backup %BCK_BACKUP%
 
-:: Authentication data
+:: Backup - authentication data
 call :ZPAQLIST auth %BCK_AUTH%
 
-:: Licence files, paid software
+:: Backup - licence files, paid software
 call :ZPAQA reg %BCK_REG%
 
-:: Utilities
+:: Backup - utilities
 call :ZPAQA utl %BCK_UTL%
+
+::--------------------------------------
 
 :: Total Comamnder settings
 call :ZPAQA tcmd "%APPDATA%\GHISLER"
@@ -65,12 +68,15 @@ call :ZPAQA skype "%APPDATA%\Skype"
 call :REGREAD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" "Desktop"
 call :ZPAQA desktop %DATA%
 
+:: Whole user profile
+rem call :ZPAQA desktop %USERPROFILE%
+
 :: Putty sessions
 call :ZPAQREG putty "HKCU\Software\SimonTatham\PuTTY\Sessions"
 
 set "ENC="
-echo DBG & pause
 
+rem echo DBG & pause
 
 :: -- THE END -- ::
 goto :EOF
@@ -89,6 +95,7 @@ goto :EOF
 :: Add files to archive( name, file... )
 setlocal
 set NAME=%1
+title Backing up %NAME% ...
 echo --- %NAME% ---
 set "FILES="
 shift
@@ -96,8 +103,10 @@ shift
 if "%FILES%" == "" (set FILES=%1) else (set FILES=%FILES% %1)
 shift
 if NOT "%1" == "" goto :_allfiles_add
-zpaq64.exe add %BACKUP_ROOT%\bck-%NAME%.zpaq %FILES% -summary -method 44 -key %ENC% || call :ERROR_MSG "Archiving failed: %NAME%"
+:: Don't keep previous versions: -until 0
+zpaq64.exe add %BACKUP_ROOT%\bck-%NAME%.zpaq %FILES% -until 0 -method 44 -key %ENC% || call :ERROR_MSG "Archiving failed: %NAME%"
 echo.
+title Backup workstation %COMPUTERNAME%
 endlocal
 goto :EOF
 
