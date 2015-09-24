@@ -53,6 +53,10 @@ Autoruns.exe
 
 #### BIOS update
 
+???
+
+#### Applications
+
 - [CPUZ](http://www.cpuid.com/softwares/cpu-z.html) Disable monitoring
 - [HWMonitor](http://www.cpuid.com/softwares/hwmonitor.html)
 - [S.M.A.R.T. status viewer](http://www.passmark.com/products/diskcheckup.htm)
@@ -62,6 +66,7 @@ Autoruns.exe
 - [Fujitsu DeskUpdate](http://support.ts.fujitsu.com/DeskUpdate/)
 - [Lenovo ThinkVantage System Update](https://support.lenovo.com/us/en/documents/tvsu-update)
 - [NVIDIA QFE driver](http://www.nvidia.com/Download/Find.aspx?lang=en-us&QNF=1) (Quadro New Feature)
+- [DirectX](http://www.microsoft.com/en-us/download/details.aspx?id=35)
 
 ### Windows settings
 
@@ -194,7 +199,7 @@ Tablet mode  ms-settings://tabletmode/
 * Mouse  main.cpl (Disable mouse shadow)
 ```
 
-See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd`
+See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd` for `shell::` commands.
 
 #### Fonts
 
@@ -207,10 +212,12 @@ Usage in cmd.exe:
 
 #### Cursors
 
-http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609
+- [Chrome OS](http://www.deviantart.com/art/Google-Chrome-OS-Pointers-W-I-P-324618673)
+- [OS X Yosemite](http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609)
 
 ### Applications
 
+- [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
@@ -222,9 +229,22 @@ http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
+    - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
 - ??? Cyg-srv? [openssh](http://www.mls-software.com/opensshd.html)
+- 
+- [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
+    - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
+    - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
 - [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
 - [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
+- [UltaVNC 64](http://www.uvnc.com/downloads/ultravnc.html) (Listen on port 5500)
+- [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
+- [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) (SkypeWeb protocol)
+- [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
+- [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
+- ( *[Malwarebytes Anti-Exploit](https://www.malwarebytes.org/antiexploit/)* )
+- [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
+- ( [Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html) )
 
 Also on http://mirror.szepe.net/software/
 

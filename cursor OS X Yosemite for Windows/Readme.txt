@@ -1,6 +1,10 @@
 Mac OS X Yosemite cursors for Windows
 -------------------------------------
 
+Download
+-------
+Download cursor files at: http://laccelo.deviantart.com/art/Mac-OS-X-Yosemite-Cursors-for-Windows-XP-7-8-8-1-514893122
+
 Install
 -------
 - Extract the archive
