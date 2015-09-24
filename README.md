@@ -30,12 +30,13 @@ reg DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2E
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 0 /f
 shutdown /t 0 /r
 :: Reboot to KNOPPIX (F8-F8-F8)
-`ntfs-3g.real /dev/sda1 /mnt && mv "/mnt/Program Files/Windows Defender" "/mnt/Program Files/_Windows Defender"`
-:: Dummy file to prevent folder recreation
-`touch "/mnt/Program Files/Windows Defender"`
+    ntfs-3g.real /dev/sda1 /mnt
+    mv "/mnt/Program Files/Windows Defender" "/mnt/Program Files/_Windows Defender"
+    :: Dummy file to prevent folder recreation
+    touch "/mnt/Program Files/Windows Defender"
 :: @FIXME Remove services, drivers: WdFilter.sys, WdNisDrv.sys
-:: sc delete WinDefend
-:: sc delete WdNisSvc
+    sc delete WinDefend
+    sc delete WdNisSvc
 
 :: Disable SSDP Discovery service (enumerates UPnP devices)
 sc stop SSDPSRV
@@ -230,8 +231,7 @@ Usage in cmd.exe:
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
-- ??? Cyg-srv? [openssh](http://www.mls-software.com/opensshd.html)
-- 
+- @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
 - [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
     - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
@@ -244,7 +244,7 @@ Usage in cmd.exe:
 - [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
 - ( *[Malwarebytes Anti-Exploit](https://www.malwarebytes.org/antiexploit/)* )
 - [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
-- ( [Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html) )
+- ( *[Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)* )
 
 Also on http://mirror.szepe.net/software/
 
@@ -313,9 +313,9 @@ See: [ff-dev](./ff-dev/)
 
 ### Virtualization
 
-Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
-[VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
-[VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
+- Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
+- [VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
+- [VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
 
 ### Cygwin
 

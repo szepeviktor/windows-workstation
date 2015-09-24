@@ -33,6 +33,7 @@
 ; Tray
 Menu, tray, NoStandard
 Menu, tray, add, Edit script, EditThisScript
+Menu, tray, add, Shutdown, ShutDownNow
 Menu, tray, add, Exit, ExitHandler
 Menu, tray, Icon, %A_ScriptDir%\workstation-shortcuts.ico, 1
 Menu, tray, Tip, Workstation Shortcuts
@@ -47,79 +48,81 @@ Return
 
 #0::
 Run, "%ComSpec%" /K cd %TMP%
-TrayTip, cmd, Command Prompt, 5, 16+1
+TrayTip, cmd, Command Prompt, 5, 1+16
 Return
 
 #1::
 Run, "%windir%\system32\SnippingTool.exe"
-TrayTip, >8, Snipping Tool, 5, 16+1
+TrayTip, >8, Snipping Tool, 5, 1+16
 Return
 
 #2::
 Run, "StikyNot.exe"
-TrayTip, Sticky Notes,, 5, 16+1
+TrayTip, Sticky Notes,, 5, 1+16
 Return
 
 #a::
 Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klón" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
-TrayTip, szerver4f, Virtualbox machine, 5, 16+1
+TrayTip, szerver4f, Virtualbox machine, 5, 1+16
 Return
 
 #b::
 Run "E:\browser-appliance\START-ba.cmd"
-TrayTip, Browser Appliance,, 5, 16+1
+TrayTip, Browser Appliance,, 5, 1+16
 Return
 
 #c::
 Run, "%BinDir%\utl\CCalc.exe"
-TrayTip, CCalc, Console Calculator, 5, 16+1
+TrayTip, CCalc, Console Calculator, 5, 1+16
 Return
 
 #d::
 
 #i::
 Run, "%ProgramFiles%\IrfanView\i_view64.exe"
-TrayTip, IrfanView, A compact, easy to use image viewer, 5, 16+1
+TrayTip, IrfanView, A compact`, easy to use image viewer, 5, 1+16
 Return
 
 #k::
 Run, "%BinDir%\keepass\KeePass.exe"
-TrayTip, KeePass, Authentication database, 5, 16+1
+TrayTip, KeePass, Authentication database, 5, 1+16
 Return
 
 #r::
 Run, "explorer.exe" shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}
-TrayTip, Run..., Run programs, 5, 16+1
+TrayTip, Run..., Run programs, 5, 1+16
 Return
 
 #s::
 Run, "compmgmt.msc"
-TrayTip, Computer Management,, 5, 16+1
+TrayTip, Computer Management,, 5, 1+16
 Return
 
 #t::
 Run, "%ProgramFiles%\totalcmd\TOTALCMD64.EXE"
-TrayTip, TCMD, Total Commander, 5, 16+1
+TrayTip, TCMD, Total Commander, 5, 1+16
 Return
 
 #v::
 Run, "SndVol.exe"
-TrayTip, Volume Control,, 5, 16+1
+TrayTip, Volume Control,, 5, 1+16
 Return
 
 #w::
 Run, "%BinDir%\utl\notepad2.exe"
-TrayTip, Notepad2,, 5, 16+1
+TrayTip, Notepad2,, 5, 1+16
 Return
 
 #y::
 Run, "%BinDir%\utl\putty" -load vps
-TrayTip, Putty, SSH connection to "VPS", 5, 16+1
+TrayTip, Putty, SSH connection to "VPS", 5, 1+16
 Return
 
+ShutDownNow:
 #z::
 #F4::
-TrayTip, Shutdown, System shutdown in 10 seconds, 5, 16+1
+^!+r::
+TrayTip, Shutdown, System shutdown in 10 seconds, 5, 1+16
 ShutDownGui()
 Return
 
@@ -141,11 +144,11 @@ Return
 
 ^!+c::
 Run, "diskpart.exe" /s "%BinDir%\utl\cyg-disk.dpt"
-TrayTip, Cygwin mount,, 5, 16+1
+TrayTip, Cygwin mount,, 5, 1+16
 Return
 
 ^!+d::
-TrayTip, Eject optical drive,, 5, 16+1
+TrayTip, Eject optical drive,, 5, 1+16
 Drive, Eject
 if A_TimeSinceThisHotkey < 500
     Drive, Eject,, 1
@@ -155,12 +158,7 @@ Return
 ; Still 32 bit
 ProgramFilesX86 := A_ProgramFiles . (A_PtrSize=8 ? " (x86)" : "")
 Run, "%ProgramFilesX86%\MuseScore 2\bin\MuseScore.exe"
-TrayTip, MuseScore,, 5, 16+1
-Return
-
-^!+r::
-Run, "%ProgramFiles%\MuseScore 2\mscore.exe"
-TrayTip, System reboot, Restart the computer, 5, 16+1
+TrayTip, MuseScore,, 5, 1+16
 Return
 
 Browser_Home::
@@ -175,12 +173,12 @@ Else
     Sleep 500
     WinHide, ahk_pid %CMD_PID%
 }
-TrayTip, Firefox, Mozilla Firefox browser, 5, 16+1
+TrayTip, Firefox, Mozilla Firefox browser, 5, 1+16
 Return
 
 Launch_Mail::
 Run "%USERPROFILE%\Desktop\v-fõkönyv-2014.xls"
-TrayTip, fõkönyv,, 5, 16+1
+TrayTip, fõkönyv,, 5, 1+16
 Return
 
 
@@ -189,7 +187,7 @@ Return
 
 ^!p::
 Run "C:\a\Program Files (x86)\Adobe\Photoshop Elements 11\PhotoshopElementsEditor.exe"
-TrayTip, PSE, Photoshop Elements, 5, 16+1
+TrayTip, PSE, Photoshop Elements, 5, 1+16
 Return
 
 ShutDownGui() {
