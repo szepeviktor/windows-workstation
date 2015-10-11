@@ -38,7 +38,10 @@ user_pref("browser.displayedE10SNotice", 4);
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.reader.detectedFirstArticle", true);
+user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+user_pref("extensions.autoDisableScopes", 11); // 15 - 4 = ALL - SCOPE_APPLICATION
+user_pref("extensions.enabledScopes", 5); // 15 - 8 - 2 = ALL - SCOPE_SYSTEM - SCOPE_USER
 user_pref("extensions.adblockplus.savestats", false);
 user_pref("extensions.adblockplus.frameobjects", false);
 

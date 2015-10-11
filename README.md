@@ -123,6 +123,12 @@ reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "C
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v "fDenyTSConnections" /t REG_DWORD /d 1 /f
 ```
 
+### Analogue clock
+
+```batch
+reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseWin32TrayClockExperience" /t REG_DWORD /d 0 /f
+```
+
 #### Settings commands
 
 ```
@@ -219,32 +225,49 @@ Usage in cmd.exe:
 ### Applications
 
 - [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
+- [Startup Delayer 64](http://www.r2.com.au/page/products/download/startup-delayer/)
+- [Launchy](http://www.launchy.net/download.php#windows)
+    - https://github.com/Netrics/putty-launchy-plugin/releases
+    - http://sourceforge.net/projects/tasky-launchy/files/
+- [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [hubiC client](https://hubic.com/en/downloads)
-- [Launchy](http://www.launchy.net/download.php#windows)
-    - https://github.com/Netrics/putty-launchy-plugin/releases
-    - http://sourceforge.net/projects/tasky-launchy/files/
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
+- [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
+- [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
 - @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
 - [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
     - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
-- [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
-- [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
-- [UltaVNC 64](http://www.uvnc.com/downloads/ultravnc.html) (Listen on port 5500)
-- [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
-- [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) (SkypeWeb protocol)
-- [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
+    - https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk
+    - https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna
+    - https://chrome.google.com/webstore/detail/fb-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc
+    - https://chrome.google.com/webstore/detail/seoquake/akdgnmcogleenhbclghghlkkdndkjdjc
+    - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
+    - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
+    - https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo
 - [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
 - ( *[Malwarebytes Anti-Exploit](https://www.malwarebytes.org/antiexploit/)* )
 - [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
 - ( *[Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)* )
+- [UltaVNC 64](http://www.uvnc.com/downloads/ultravnc.html) (Listen on port 5500)
+- [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
+- [Meneré](https://wordpress.org/support/rss/topic/graphics-for-polylang) Feedly reader
+- todotxt winui, cli
+- [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
+- [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
+- [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) (SkypeWeb protocol)
+- [GIMP 64](http://www.partha.com/)
+- [Inkspace 64](http://www.partha.com/)
+- [RealWolrd Paint](http://www.rw-designer.com/image-editor)
+- Adobe PSE
+- [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)
 
 Also on http://mirror.szepe.net/software/
 
@@ -263,13 +286,22 @@ Prepend: `%SystemDrive%\bin\utl;`
 
 Binary: https://eternallybored.org/misc/wget/
 
-1. CA URL: https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt
-1. CA file: `C:/bin/utl/ca-bundle.crt`
+*( https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt )*
+
+##### CA download
+
+```batch
+:: Download deb package from https://packages.debian.org/stable/all/ca-certificates/download
+7za e -t# "ca-certificates_*_all.deb" 4.xz
+7za e "4.xz"
+7za e -o.\bundle "4" .\usr\share\ca-certificates\mozilla\*.crt
+type .\bundle\*.crt > C:/bin/utl/ca-certificates.crt
+```
 
 ```ini
 ## C:\bin\utl\.wgetrc
 
-ca-certificate = C:/bin/utl/ca-bundle.crt
+ca-certificate = C:/bin/utl/ca-certificates.crt
 content-disposition = on
 #default: ca-certificate = c:/ssl/ssl/cert.pem
 #http_proxy = http://192.168.2.161:8080/
@@ -279,7 +311,9 @@ content-disposition = on
 
 ### KeePass
 
-Binary: http://keepass.info/download.html `c:\bin\keepass\`
+Binary: http://keepass.info/download.html `C:\bin\keepass\`
+
+Tools / Options / Advanced tab / Automatically save database on exit and workspace locking
 
 #### Plugins
 
@@ -311,6 +345,12 @@ See: [ff-dev](./ff-dev/)
 
 [Flash player](http://www.adobe.com/hu/products/flashplayer/distribution3.html)
 
+Bookmarks for Launchy: `browser.bookmarks.autoExportHTML = true`
+
+Fullscreen screenshot: Shift + F2 `screenshot --fullpage --clipboard`
+
+Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-developer/
+
 ### Virtualization
 
 - Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
@@ -318,23 +358,6 @@ See: [ff-dev](./ff-dev/)
 - [VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
 
 ### Cygwin
-
-#### [Cygwin 64 bit setup](https://cygwin.com/setup-x86_64.exe)
-
-```batch
-:: Mount Cygwin vdisk
-@diskpart /s C:\bin\utl\cyg-disk.dpt
-```
-
-```
-rem --- cyg-disk.dpt ---
-
-select vdisk file="e:\cygwin64.vhd"
-attach vdisk
-
-rem select vdisk file="e:\cygwin64.vhd"
-rem detach vdisk
-```
 
 #### Create vdisk in `diskpart`
 
@@ -348,11 +371,35 @@ assign mount="C:\cygwin2"
 format label="Cygwin2" quick
 ```
 
+#### [Cygwin 64 bit setup](https://cygwin.com/setup-x86_64.exe)
+
+```diskpart
+:: Cygwin vdisk script --- cyg-disk.dpt ---
+
+select vdisk file="e:\cygwin64.vhd"
+attach vdisk
+
+rem select vdisk file="e:\cygwin64.vhd"
+rem detach vdisk
+```
+
+```batch
+:: Mount Cygwin vdisk --- cygpart-mount.cmd ---
+@diskpart /s "C:\bin\utl\cyg-disk.dpt"
+```
+
 #### Shortcut target
 
 ```batch
 :: Start Cygwin terminal
 C:\cygwin2\bin\mintty.exe -i /Cygwin-Terminal.ico -
+```
+
+#### Associate .dpt extension
+
+```batch
+ftype DiskPartScript=diskpart.exe /s %1
+assoc .dpt=DiskPartScript
 ```
 
 #### Install apt-cyg

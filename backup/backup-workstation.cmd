@@ -1,5 +1,10 @@
 @echo off
 
+:: Restore
+:: =======
+::
+:: for /F "tokens=*" %E IN (enc.key) DO zpaq64.exe extract %BACKUP_ZPAQ% -all -key "%E"
+
 :: Backup parameters
 set BACKUP_ROOT="E:\backup"
 :: No quotes!
