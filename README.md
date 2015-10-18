@@ -93,8 +93,8 @@ bcdedit /set sos on
 powercfg -h on
 :: powercfg -h off
 powercfg.cpl
-:: Choose what the power button does
-:: Hibernate: shutdown /t 0 /f /h
+:: Power button: shutdown, Sleep button: hibernate
+:: Hibernate command: shutdown /t 0 /f /h
 ```
 
 #### Disble Windows key combinations
@@ -120,13 +120,13 @@ reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "C
 ### Disable remote assistance (Terminal Server)
 
 ```batch
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v "fDenyTSConnections" /t REG_DWORD /d 1 /f
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v "fDenyTSConnections" /t REG_DWORD /d 1 /f
 ```
 
-### Analogue clock
+### Show analogue clock
 
 ```batch
-reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseWin32TrayClockExperience" /t REG_DWORD /d 0 /f
+reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseWin32TrayClockExperience" /t REG_DWORD /d 1 /f
 ```
 
 #### Settings commands
@@ -204,6 +204,7 @@ Tablet mode  ms-settings://tabletmode/
 * Power Settings  powercfg.cpl
 * Certificate Manager  certmgr.msc
 * Mouse  main.cpl (Disable mouse shadow)
+* Time and Date  timedate.cpl (Analogue clock)
 ```
 
 See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd` for `shell::` commands.
@@ -268,6 +269,7 @@ Usage in cmd.exe:
 - [RealWolrd Paint](http://www.rw-designer.com/image-editor)
 - Adobe PSE
 - [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)
+- [Some PDF Images Extract](http://www.somepdf.com/downloads.html)
 
 Also on http://mirror.szepe.net/software/
 
@@ -414,7 +416,7 @@ chmod +x /usr/local/sbin/apt-cyg
 1. Run `backup-workstation.cmd` on Windows shutdown
 1. Have [hubiC client](https://hubic.com/en/downloads) back it up daily, keep 10 versions
 
-## Remove unused drivers yearly
+## Remove unused drivers @yearly
 
 ```batch
 set "DEVMGR_SHOW_NONPRESENT_DEVICES=1"

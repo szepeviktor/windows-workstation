@@ -1,9 +1,24 @@
-@echo off
+@echo off & goto :START
+#
+# Assign Windows key and other shortcuts.
+#
+# VERSION       :1.2.0
+# DATE          :2015-10-11
+# AUTHOR        :Viktor Szépe <viktor@szepe.net>
+# URL           :https://github.com/szepeviktor/windows-workstation/tree/master/backup
+# LICENSE       :The MIT License (MIT)
+# ENCODING      :UTF-8
+# DEPENDS       :http://mattmahoney.net/dc/zpaq.html
+# CONFIG        :C:\bin\backup\backup-auth.files
+# LOCATION      :C:\bin\backup\backup-workstation.cmd
 
-:: Restore
-:: =======
-::
-:: for /F "tokens=*" %E IN (enc.key) DO zpaq64.exe extract %BACKUP_ZPAQ% -all -key "%E"
+# Restore
+#
+# set BACKUP_ZPAQ=backup.zpaq
+# for /F "tokens=*" %E IN (enc.key) DO zpaq64.exe extract %BACKUP_ZPAQ% -all -key "%E"
+
+:START
+:: Everything is comment before this label
 
 :: Backup parameters
 set BACKUP_ROOT="E:\backup"
@@ -25,7 +40,6 @@ title Backup workstation %COMPUTERNAME%
 color 02
 
 :: Check zpaq
-:: http://mattmahoney.net/dc/zpaq.html
 zpaq64.exe add "" . > nul 2>&1
 if ERRORLEVEL 1 call :ERROR_MSG "Missing ZPAQ binary."
 
@@ -58,9 +72,6 @@ call :ZPAQA irfanv "%APPDATA%\IrfanView"
 
 :: Windows Theme
 call :ZPAQA windows-themes "%LOCALAPPDATA%\Microsoft\Windows\Themes"
-
-:: HotKeyz settings
-call :ZPAQA hotkeyz "%LOCALAPPDATA%\Hotkeyz"
 
 :: Launchy settings
 call :ZPAQA launchy "%APPDATA%\Launchy\Launchy.ini"
