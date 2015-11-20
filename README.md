@@ -220,6 +220,8 @@ Usage in cmd.exe:
 
 #### Cursors
 
+- Windows built-in "Large inverted"
+- See: `cursor OS X Yosemite for Windows\`
 - [Chrome OS](http://www.deviantart.com/art/Google-Chrome-OS-Pointers-W-I-P-324618673)
 - [OS X Yosemite](http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609)
 
@@ -234,13 +236,18 @@ Usage in cmd.exe:
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
+- [HitmanPro.Alert](https://www.check-and-secure.com/vacination/_en/) Second opinion behavioral based Anti-Malware
+- [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
+- ( *[Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)* )
+- [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
+- ( *[Malwarebytes Anti-Exploit](https://www.malwarebytes.org/antiexploit/)* )
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [hubiC client](https://hubic.com/en/downloads)
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
-- [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
+- [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe) `Skype.exe /datapath:"path\to\profiles" /removable`
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
 - @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
 - [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
@@ -253,10 +260,6 @@ Usage in cmd.exe:
     - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
     - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
     - https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo
-- [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
-- ( *[Malwarebytes Anti-Exploit](https://www.malwarebytes.org/antiexploit/)* )
-- [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
-- ( *[Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)* )
 - [UltaVNC 64](http://www.uvnc.com/downloads/ultravnc.html) (Listen on port 5500)
 - [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
 - [Meneré](https://wordpress.org/support/rss/topic/graphics-for-polylang) Feedly reader
@@ -337,6 +340,7 @@ wget -nv -N -P C:\bin\utl\ https://github.com/altercation/solarized/raw/master/p
 
 Alternatives
 
+- https://puttytray.goeswhere.com/ PuTTYtray
 - http://www.fosshub.com/KiTTY.html (Cygterm)
 - http://www.extraputty.com/download.php
 - https://github.com/Maximus5/ConEmu/releases
