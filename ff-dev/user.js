@@ -16,6 +16,7 @@ user_pref("devtools.netmonitor.enabled", false);
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.memory.capacity", 256000); // 256 MB
 user_pref("places.history.enabled", false);
+
 user_pref("privacy.clearOnShutdown.cache", false);
 user_pref("privacy.clearOnShutdown.cookies", false);
 user_pref("privacy.clearOnShutdown.formdata", false);
@@ -24,6 +25,7 @@ user_pref("privacy.clearOnShutdown.offlineApps", false);
 user_pref("privacy.clearOnShutdown.passwords", false);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
+
 user_pref("browser.formfill.enable", false);
 user_pref("signon.rememberSignons", false);
 user_pref("datareporting.healthreport.service.firstRun", true);
@@ -40,10 +42,21 @@ user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.reader.detectedFirstArticle", true);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+user_pref("browser.pocket.enabled", false);
+user_pref("browser.toolbarbuttons.introduced.pocket-button", false);
+user_pref("reader.parse-on-load.enabled", false);
+// Firefox Hello
+user_pref("loop.enabled", false);
+// WebRTC
+user_pref("media.peerconnection.enabled", false);
+
 user_pref("extensions.autoDisableScopes", 11); // 15 - 4 = ALL - SCOPE_APPLICATION
 user_pref("extensions.enabledScopes", 5); // 15 - 8 - 2 = ALL - SCOPE_SYSTEM - SCOPE_USER
+
+// Adblock Plus
 user_pref("extensions.adblockplus.savestats", false);
 user_pref("extensions.adblockplus.frameobjects", false);
 
+// Select with double-click
 user_pref("layout.word_select.stop_at_punctuation", false);
 user_pref("layout.word_select.eat_space_to_next_word", false);
