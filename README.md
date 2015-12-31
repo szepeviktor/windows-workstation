@@ -8,9 +8,18 @@
 
 # Windows 10 "Light"
 
+Reinstall Apps:
+
+```powershell
+Get-AppxPackage -AllUsers|Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+```
+
 ```batch
+:: Remove Windows Spying
+:: https://github.com/Nummer/Destroy-Windows-10-Spying
+
 :: Remove all built-in Apps
-???
+:: http://www.thewindowsclub.com/ultimate-windows-tweaker-4-windows-10
 
 :: Remove OneDrive
 reg ADD "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows" /v "DisableFileSyncNGSC" /t REG_DWORD /d 1 /f
@@ -35,8 +44,8 @@ shutdown /t 0 /r
     :: Dummy file to prevent folder recreation
     touch "/mnt/Program Files/Windows Defender"
 :: @FIXME Remove services, drivers: WdFilter.sys, WdNisDrv.sys
-    sc delete WinDefend
-    sc delete WdNisSvc
+rem sc delete WinDefend
+rem sc delete WdNisSvc
 
 :: Disable SSDP Discovery service (enumerates UPnP devices)
 sc stop SSDPSRV
@@ -45,6 +54,15 @@ sc config SSDPSRV start= disabled
 :: Disable Remote Registry service
 sc stop RemoteRegistry
 sc config RemoteRegistry start= disabled
+
+:: Check drivers
+:: http://www.nirsoft.net/utils/driverview.html
+sc query type= driver|find "_NAME:"
+:: https://www.devside.net/wamp-server/opening-up-port-80-for-apache-to-use-on-windows
+rem netsh http show urlacl|find "Reserved URL"
+rem netsh http show servicestate
+rem net stop HTTP
+rem sc config HTTP start= disabled
 
 :: Check missing files
 Autoruns.exe
@@ -225,6 +243,10 @@ Usage in cmd.exe:
 - [Chrome OS](http://www.deviantart.com/art/Google-Chrome-OS-Pointers-W-I-P-324618673)
 - [OS X Yosemite](http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609)
 
+### Windows Updates
+
+[Windows Update MiniTool](http://forum.ru-board.com/topic.cgi?forum=5&topic=48142#2)
+
 ### Applications
 
 - [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
@@ -235,19 +257,20 @@ Usage in cmd.exe:
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
-- [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
-- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware
-- [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
-- ( *[Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)* )
-- [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
+- [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
+- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
+- [bsc 64](http://libbsc.com/)
 - [hubiC client](https://hubic.com/en/downloads)
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
-- [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe) `Skype.exe /datapath:"path\to\profiles" /removable`
+- [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
+    - [Skype official full installer](http://www.skype.com/go/getskype-full)
+    - Portable: `Skype.exe /datapath:"path\to\profiles" /removable`
+    - During call: Call / Call Technical Info
 - @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
 - [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
@@ -259,13 +282,14 @@ Usage in cmd.exe:
     - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
     - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
     - https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo
-- [UltaVNC 64](http://www.uvnc.com/downloads/ultravnc.html) (Listen on port 5500)
+- [UltraVNC 64](http://www.uvnc.com/downloads/ultravnc.html) Listen on port 5500
+- [UltraVNC SC](http://www.uvnc.com/docs/uvnc-sc.html)
 - [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
 - [Meneré](https://wordpress.org/support/rss/topic/graphics-for-polylang) Feedly reader
 - todotxt winui, cli
 - [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
 - [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
-- [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) (SkypeWeb protocol)
+- [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) SkypeWeb protocol
 - [GIMP 64](http://www.partha.com/)
 - [Inkspace 64](http://www.partha.com/)
 - [RealWolrd Paint](http://www.rw-designer.com/image-editor)
@@ -290,16 +314,17 @@ Prepend: `%SystemDrive%\bin\utl;`
 
 Binary: https://eternallybored.org/misc/wget/
 
-*( https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt )*
+*https://github.com/bagder/ca-bundle/raw/master/ca-bundle.crt*
 
 ##### CA download
 
 ```batch
 :: Download deb package from https://packages.debian.org/stable/all/ca-certificates/download
-7za e -t# "ca-certificates_*_all.deb" 4.xz
+7za e -t# "./ca-certificates_*_all.deb" "4.xz"
 7za e "4.xz"
-7za e -o.\bundle "4" .\usr\share\ca-certificates\mozilla\*.crt
-type .\bundle\*.crt > C:/bin/utl/ca-certificates.crt
+7za e -o.\bundle "4" ".\usr\share\ca-certificates\mozilla\*.crt"
+type ".\bundle\*.crt" > "C:\bin\utl\ca-certificates.crt"
+del /Q "ca-certificates_*_all.deb" "4.xz" "4" "bundle"
 ```
 
 ```ini
@@ -318,6 +343,12 @@ content-disposition = on
 Binary: http://keepass.info/download.html `C:\bin\keepass\`
 
 Tools / Options / Advanced tab / Automatically save database on exit and workspace locking
+
+Tools / Options / Integration tab / URL overrides...
+
+sshp
+`cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
+
 
 #### Plugins
 
@@ -361,6 +392,16 @@ Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-deve
 - Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
 - [VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
 - [VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
+
+### Desktop malware cleaning
+
+- [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
+- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
+
+- [NoVirusThanks tools](http://www.novirusthanks.org/)
+- [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
+- [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
+- [Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)
 
 ### Cygwin
 
