@@ -217,6 +217,7 @@ Tablet mode  ms-settings://tabletmode/
 * Windows Features  OptionalFeatures.exe (Add HyperV)
 * System Properties  SystemPropertiesAdvanced.exe
 * System Performance SystemPropertiesPerformance.exe (Disable animations)
+* Remote Desktop (RDP) SystemPropertiesRemote.exe
 * Security Center  wscui.cpl
 * Firewall  Firewall.cpl
 * Power Settings  powercfg.cpl
