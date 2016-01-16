@@ -39,17 +39,22 @@ user_pref("browser.displayedE10SPrompt.1", 1);
 user_pref("browser.displayedE10SNotice", 4);
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
-user_pref("browser.reader.detectedFirstArticle", true);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
+// Hide "Search with Google" from awesomebar
+user_pref("browser.urlbar.unifiedcomplete", true);
 
+// Reader
+user_pref("reader.parse-on-load.enabled", false);
+user_pref("browser.reader.detectedFirstArticle", true);
+// Pocket
 user_pref("browser.pocket.enabled", false);
 user_pref("browser.toolbarbuttons.introduced.pocket-button", false);
-user_pref("reader.parse-on-load.enabled", false);
 // Firefox Hello
 user_pref("loop.enabled", false);
 // WebRTC
 user_pref("media.peerconnection.enabled", false);
 
+// Activate extensions in core
 user_pref("extensions.autoDisableScopes", 11); // 15 - 4 = ALL - SCOPE_APPLICATION
 user_pref("extensions.enabledScopes", 5); // 15 - 8 - 2 = ALL - SCOPE_SYSTEM - SCOPE_USER
 

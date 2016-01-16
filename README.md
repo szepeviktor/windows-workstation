@@ -300,6 +300,12 @@ Usage in cmd.exe:
 
 Also on http://mirror.szepe.net/software/
 
+### Virtualize Windows applications
+
+- https://www.rollapp.com/
+- https://turbo.net/
+- http://www.cameyo.com/
+
 ### /usr/local/bin on Windows
 
 Create folder and prepend to PATH

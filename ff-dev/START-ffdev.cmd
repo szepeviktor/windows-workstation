@@ -37,26 +37,46 @@ mkdir %PROFILEDIR%
 
 :: Permanent files
 if EXIST .\user.js copy /Y .\user.js %PROFILEDIR%\
-rem if EXIST .\cert_override.txt copy /Y .\cert_override.txt %PROFILEDIR%\
-rem if EXIST .\cert8.db copy /Y .\cert8.db %PROFILEDIR%\
 if EXIST .\places.sqlite copy /Y .\places.sqlite %PROFILEDIR%\
 
-rem :: Adblock Plus extension
-rem set EXT_ABP="{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}.xpi"
-rem set EXT_ABP_URL="https://addons.mozilla.org/firefox/downloads/latest/1865/addon-1865-latest.xpi"
-rem set EXT_ABP_URL="https://addons.mozilla.org/firefox/downloads/latest/1865/addon-1865-latest.xpi"
-rem if NOT EXIST .\%EXT_ABP% (
-rem     wget -nv -O .\%EXT_ABP% %EXT_ABP_URL%
+:: szepenet CA
+if EXIST .\szepenet-cert8.db if EXIST .\szepenet-key3.db if EXIST .\szepenet-secmod.db (
+    copy /Y .\szepenet-cert8.db %PROFILEDIR%\cert8.db
+    copy /Y .\szepenet-key3.db %PROFILEDIR%\key3.db
+    copy /Y .\szepenet-secmod.db %PROFILEDIR%\secmod.db
+)
+
+:: Only OTP Bank certificates
+rem if EXIST .\all-but-otp-cert_override.txt if EXIST .\all-but-otp-cert8.db if EXIST .\all-but-otp-key3.db if EXIST .\all-but-otp-secmod.db (
+rem     copy /Y .\all-but-otp-cert_override.txt %PROFILEDIR%\cert_override.txt
+rem     copy /Y .\all-but-otp-cert8.db %PROFILEDIR%\cert8.db
+rem     copy /Y .\all-but-otp-key3.db %PROFILEDIR%\key3.db
+rem     copy /Y .\all-but-otp-secmod.db %PROFILEDIR%\secmod.db
 rem )
-rem if EXIST .\%EXT_ABP% copy /Y .\%EXT_ABP% .\core\browser\extensions\
 
 :: uBlock Origin extension
-set EXT_UBO="uBlock0@raymondhill.net.xpi"
+set EXT_UBO=".\uBlock0@raymondhill.net.xpi"
 set EXT_UBO_URL="https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi"
-if NOT EXIST .\%EXT_UBO% (
-    wget -nv -O .\%EXT_UBO% %EXT_UBO_URL%
+if NOT EXIST %EXT_UBO% (
+    wget -nv -O %EXT_UBO% %EXT_UBO_URL%
 )
-if EXIST .\%EXT_UBO% copy /Y .\%EXT_UBO% .\core\browser\extensions\
+if EXIST %EXT_UBO% copy /Y %EXT_UBO% .\core\browser\extensions\
+
+:: Always Right extension
+set EXT_AWR=".\jid0-SzimoL45Ib8OddgoUBG0buQmjec@jetpack.xpi"
+set EXT_AWR_URL="https://addons.mozilla.org/firefox/downloads/file/304228/always_right-1.4-fx.xpi"
+if NOT EXIST %EXT_AWR% (
+    wget -nv -O %EXT_AWR% %EXT_AWR_URL%
+)
+if EXIST %EXT_AWR% copy /Y %EXT_AWR% .\core\browser\extensions\
+
+:: TR
+rem set EXT_TR=".\{50ee6140-601e-11e0-80e3-0800200c9a66}.xpi"
+rem set EXT_TR_URL="https://addons.mozilla.org/firefox/downloads/file/130496/tabsright-1.0-beta-4-fx.xpi"
+rem if NOT EXIST %EXT_TR% (
+rem     wget -nv -O %EXT_TR% %EXT_TR_URL%
+rem )
+rem if EXIST %EXT_TR% copy /Y %EXT_TR% .\core\browser\extensions\
 
 :: Start Firefox
 rem start /WAIT .\core\firefox.exe -safe-mode -no-remote -profile %PROFILEDIR% "https://www.otpbank.hu/portal/hu/OTPdirekt/Belepes"
@@ -78,4 +98,4 @@ I'm feeling luck - kw:1 - https://www.google.com/search?btnI=1&q=%s
 
 :: ABP filters
 http://preview.tinyurl.com/adblockhu-subscribe
-https://github.com/szepeviktor/lean-filter/blob/master/README.md
+http://preview.tinyurl.com/adblock-leanfilter

@@ -1,9 +1,10 @@
 /*
 # Assign Windows key and other shortcuts.
 #
+# ENCODING      :ANSI
 # VERSION       :0.1.0
 # DATE          :2015-09-18
-# AUTHOR        :Viktor SzÃ©pe <viktor@szepe.net>
+# AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
 # LICENSE       :The MIT License (MIT)
 # AUTOHOTKEY    :1.1+
@@ -62,7 +63,7 @@ TrayTip, Sticky Notes,, 5, 1+16
 Return
 
 #a::
-Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klÃ³n" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
+Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klón" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
 TrayTip, szerver4f, Virtualbox machine, 5, 1+16
 Return
 
@@ -73,6 +74,7 @@ Return
 
 #c::
 Run, "%BinDir%\utl\CCalc.exe"
+WinWait Console Calculator
 WinActivate
 TrayTip, CCalc, Console Calculator, 5, 1+16
 Return
@@ -84,7 +86,8 @@ Run, "%ProgramFiles%\IrfanView\i_view64.exe"
 TrayTip, IrfanView, A compact`, easy to use image viewer, 5, 1+16
 Return
 
-#k::
+;#k::
+Launch_Mail::
 Run, "%BinDir%\keepass\KeePass.exe"
 TrayTip, KeePass, Authentication database, 5, 1+16
 Return
@@ -177,9 +180,9 @@ Else
 TrayTip, Firefox, Mozilla Firefox browser, 5, 1+16
 Return
 
-Launch_Mail::
-Run "%USERPROFILE%\Desktop\v-fÅ‘kÃ¶nyv-2014.xls"
-TrayTip, fÅ‘kÃ¶nyv,, 5, 1+16
+#f::
+Run %USERPROFILE%\Desktop\v-fõkönyv.lnk
+TrayTip, fõkönyv,, 5, 1+16
 Return
 
 

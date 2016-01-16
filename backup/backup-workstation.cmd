@@ -2,7 +2,7 @@
 #
 # Assign Windows key and other shortcuts.
 #
-# VERSION       :1.2.0
+# VERSION       :1.2.1
 # DATE          :2015-10-11
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/tree/master/backup
@@ -27,8 +27,9 @@ set ENC_KEY=C:\bin\backup\enc.key
 :: Things to backup
 set BCK_BACKUP="C:\bin\backup"
 set BCK_AUTH="C:\bin\backup\backup-auth.files"
-set BCK_REG="E:\reg"
+set BCK_REG="%USERPROFILE%\reg"
 set BCK_UTL="C:\bin\utl\*.cmd"
+set BCK_UTL_LIST="C:\bin\utl\utl-files.txt"
 
 :: UTF-8 output
 chcp 65001 > nul
@@ -60,6 +61,7 @@ call :ZPAQLIST auth %BCK_AUTH%
 call :ZPAQA reg %BCK_REG%
 
 :: Backup - utilities
+dir /B %BCK_UTL% > %BCK_UTL_LIST%
 call :ZPAQA utl %BCK_UTL%
 
 ::--------------------------------------
@@ -78,6 +80,7 @@ call :ZPAQA launchy "%APPDATA%\Launchy\Launchy.ini"
 
 :: Skype profile
 tasklist /FI "IMAGENAME eq Skype.exe" > nul && taskkill /T /F /FI "IMAGENAME eq Skype.exe" > nul
+for /R "%APPDATA%\Skype" %%E IN (media_messaging\emo_cache\*) DO del /F /Q "%%E"
 call :ZPAQA skype "%APPDATA%\Skype"
 
 :: Desktop
