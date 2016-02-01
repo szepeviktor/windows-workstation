@@ -28,6 +28,13 @@ mkdir %PROFILEDIR%
 :: Permanent files
 if EXIST .\user.js copy /Y .\user.js %PROFILEDIR%\
 if EXIST .\cert_override.txt copy /Y .\cert_override.txt %PROFILEDIR%\
+:: Only OTP Bank certificates
+rem if EXIST .\all-but-otp-cert_override.txt if EXIST .\all-but-otp-cert8.db if EXIST .\all-but-otp-key3.db if EXIST .\all-but-otp-secmod.db (
+rem     copy /Y .\all-but-otp-cert_override.txt %PROFILEDIR%\cert_override.txt
+rem     copy /Y .\all-but-otp-cert8.db %PROFILEDIR%\cert8.db
+rem     copy /Y .\all-but-otp-key3.db %PROFILEDIR%\key3.db
+rem     copy /Y .\all-but-otp-secmod.db %PROFILEDIR%\secmod.db
+rem )
 if EXIST .\cert8.db copy /Y .\cert8.db %PROFILEDIR%\
 
 :: Start Firefox

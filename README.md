@@ -115,7 +115,7 @@ powercfg.cpl
 :: Hibernate command: shutdown /t 0 /f /h
 ```
 
-#### Disble Windows key combinations
+#### Disable Windows key combinations
 
 Not necessary.
 
@@ -146,6 +146,10 @@ reg ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v "fDenyTSConne
 ```batch
 reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseWin32TrayClockExperience" /t REG_DWORD /d 1 /f
 ```
+
+### Untrusted Font Blocking in IE
+
+gpedit.msc / Administrative Templates / System / Mitigation Options / Untrusted Font Blocking / "Do not block untrusted fonts"
 
 #### Settings commands
 
@@ -349,13 +353,15 @@ content-disposition = on
 
 Binary: http://keepass.info/download.html `C:\bin\keepass\`
 
+Tools / Options / Security / Enter Master Key on Secure Desktop `cacls auth-data.kdbx /P PC\User:F`
+
 Tools / Options / Advanced tab / Automatically save database on exit and workspace locking
 
 Tools / Options / Integration tab / URL overrides...
 
-sshp
-`cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
-
+lftp: `cmd://cmd.exe /C "echo lftp -e 'set ftp:ssl-allow 0;' -u '{USERNAME},{PASSWORD}' ftp://{BASE:HOST} && pause"`
+sshp: `cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
+rdp:  `cmd://mstsc.exe /v:{BASE:RMVSCM}`
 
 #### Plugins
 
