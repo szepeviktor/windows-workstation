@@ -3,6 +3,8 @@
  * https://github.com/pyllyukko/user.js                                       *
  ******************************************************************************/
 
+// Add changes:  https://github.com/pyllyukko/user.js/compare/e69e9ff...master
+
 /******************************************************************************
  * HTML5 / APIs / DOM                                                         *
  *                                                                            *

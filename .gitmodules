@@ -1,0 +1,3 @@
+[submodule "user.js"]
+	path = user.js
+	url = git@github.com:szepeviktor/user.js.git

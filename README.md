@@ -232,6 +232,17 @@ Tablet mode  ms-settings://tabletmode/
 
 See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd` for `shell::` commands.
 
+#### Time
+
+Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
+
+### Network and ISP
+
+- IPv6 connectivity
+- DNS resolvers
+- NTP server
+- [BCP38 Spoofer](http://spoofer.csail.mit.edu/)
+
 #### Fonts
 
 - https://github.com/andreberg/Meslo-Font/releases (LGS=line gap small, DZ=dotted zero)
@@ -255,11 +266,14 @@ Usage in cmd.exe:
 ### Applications
 
 - [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
+- [Precise time for Windows](https://www.meinbergglobal.com/english/sw/ntp.htm) (ntpd)
 - [Startup Delayer 64](http://www.r2.com.au/page/products/download/startup-delayer/)
+- [Notifu](http://www.paralint.com/projects/notifu/#Download)
 - [Launchy](http://www.launchy.net/download.php#windows)
     - https://github.com/Netrics/putty-launchy-plugin/releases
     - http://sourceforge.net/projects/tasky-launchy/files/
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
+- [WinCompose](https://github.com/samhocevar/wincompose)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
@@ -269,7 +283,6 @@ Usage in cmd.exe:
 - [hubiC client](https://hubic.com/en/downloads)
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
-- [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
@@ -301,14 +314,37 @@ Usage in cmd.exe:
 - Adobe PSE
 - [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)
 - [Some PDF Images Extract](http://www.somepdf.com/downloads.html)
+- [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
+- [Open Broadcaster Software](https://obsproject.com/download)
+- [Sizer](http://www.brianapps.net/sizer/)
 
 Also on http://mirror.szepe.net/software/
 
+### Alert on Event log errors
+
+Scheduled task import: `Task-Event log alert.xml`
+
+```batch
+wevtutil qe Application "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
+wevtutil qe Security "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
+wevtutil qe Setup "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
+wevtutil qe System "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
+wevtutil qe ForwardedEvents "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
+```
+
+### Google Chrome portable
+
+1. http://portableapps.com/apps/internet/google_chrome_portable
+1. `find "DownloadURL=" App\AppInfo\installer.ini`
+1. `wget %DownloadURL%`
+1. `7za e *_chrome_installer.exe`
+1. `7za x chrome.7z`
+
 ### Virtualize Windows applications
 
-- https://www.rollapp.com/
-- https://turbo.net/
-- http://www.cameyo.com/
+- http://www.cameyo.com/ (Windows Server)
+- https://www.rollapp.com/ (Unubtu)
+- https://turbo.net/ (WINE)
 
 ### /usr/local/bin on Windows
 
@@ -480,3 +516,10 @@ set "DEVMGR_SHOW_NONPRESENT_DEVICES=1"
 devmgmt.msc
 :: View / Show hidden devices
 ```
+
+## Computer shops
+
+- http://www.mindenolcso.hu/hasznalt-szamitogep.html
+- http://www.mindenolcso.hu/hasznalt-monitor.html
+- http://www.marseus.hu/hu/memoria/szerver/
+- http://microstore.hu/index.php?manufacturer_id[]=503&path=20_94&route=product%2Fcategory
