@@ -1,4 +1,4 @@
-# Prepare my Windows 7 workstation
+# Prepare my Windows workstation
 
 ## Identification
 
@@ -38,7 +38,7 @@ reg DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2E
 "C:\Program Files\Windows Defender\mpcmdrun" -removedefinitions -all
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 0 /f
 shutdown /t 0 /r
-:: Reboot to KNOPPIX (F8-F8-F8)
+:: Reboot to KNOPPIX (hit F8-F8-F8)
     ntfs-3g.real /dev/sda1 /mnt
     mv "/mnt/Program Files/Windows Defender" "/mnt/Program Files/_Windows Defender"
     :: Dummy file to prevent folder recreation
@@ -58,6 +58,7 @@ sc config RemoteRegistry start= disabled
 :: Check drivers
 :: http://www.nirsoft.net/utils/driverview.html
 sc query type= driver|find "_NAME:"
+
 :: https://www.devside.net/wamp-server/opening-up-port-80-for-apache-to-use-on-windows
 rem netsh http show urlacl|find "Reserved URL"
 rem netsh http show servicestate
@@ -72,7 +73,7 @@ Autoruns.exe
 
 #### BIOS update
 
-???
+[HP Support](http://h20564.www2.hp.com/hpsc/swd/public/readIndex?sp4ts.oid=5053200&swLangOid=8&swEnvOid=4059)
 
 #### Applications
 
@@ -116,8 +117,6 @@ powercfg.cpl
 ```
 
 #### Disable Windows key combinations
-
-Not necessary.
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1
@@ -241,7 +240,7 @@ Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 - IPv6 connectivity
 - DNS resolvers
 - NTP server
-- [BCP38 Spoofer](http://spoofer.csail.mit.edu/)
+- [BCP38 Spoofer](https://spoofer.caida.org/)
 
 #### Fonts
 
@@ -255,7 +254,7 @@ Usage in cmd.exe:
 #### Cursors
 
 - Windows built-in "Large inverted"
-- See: `cursor OS X Yosemite for Windows\`
+- See folder: `cursor OS X Yosemite for Windows/`
 - [Chrome OS](http://www.deviantart.com/art/Google-Chrome-OS-Pointers-W-I-P-324618673)
 - [OS X Yosemite](http://mercury21.deviantart.com/art/New-Mac-OS-X-Cursor-97810609)
 
@@ -277,7 +276,7 @@ Usage in cmd.exe:
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
-- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
+- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.surfright.nl/en/downloads/beta) [forum](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [bsc 64](http://libbsc.com/)
 - [hubiC client](https://hubic.com/en/downloads)
@@ -395,9 +394,9 @@ Tools / Options / Advanced tab / Automatically save database on exit and workspa
 
 Tools / Options / Integration tab / URL overrides...
 
-lftp: `cmd://cmd.exe /C "echo lftp -e 'set ftp:ssl-allow 0;' -u '{USERNAME},{PASSWORD}' ftp://{BASE:HOST} && pause"`
-sshp: `cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
-rdp:  `cmd://mstsc.exe /v:{BASE:RMVSCM}`
+- lftp: `cmd://cmd.exe /C "echo lftp -e 'set ftp:ssl-allow 0;' -u '{USERNAME},{PASSWORD}' ftp://{BASE:HOST} && pause"`
+- sshp: `cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
+- rdp:  `cmd://mstsc.exe /v:{BASE:RMVSCM}`
 
 #### Plugins
 
