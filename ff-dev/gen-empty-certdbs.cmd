@@ -1,11 +1,26 @@
-7za x -y .\firefox-*.exe "core\"
-start /WAIT core\firefox.exe -no-remote -profile empty-certdbs\
-:: Quit Firefox!
-bin\certutil.exe -L -d empty-certdbs\
+@echo OFF
+:: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil
+:: https://github.com/christian-korneck/firefox_add-certs/releases
+
+rem 7za x -y .\firefox-*.exe "core\"
+rem start /WAIT core\firefox.exe -no-remote -profile empty-certdbs\
+rem :: Quit Firefox!
+
+:: Start with an empty db
+mkdir empty-certdbs
+bin\certutil.exe -d empty-certdbs\ -N --empty-password
+
+:: Add an existing certificate
 wget -nv -O szepenet.pem http://ca.szepe.net/pem
-bin\certutil.exe -A -i szepenet.pem -n szepenet -t "C,," -d empty-certdbs\
-bin\certutil.exe -L -d empty-certdbs\
+bin\certutil.exe -d empty-certdbs\ -A -i szepenet.pem -n szepenet -t "C,,"
+
+:: List all the certificates
+bin\certutil.exe -d empty-certdbs\ -L
+
+:: Rename db files
 copy /Y empty-certdbs\cert8.db szepenet-cert8.db
 copy /Y empty-certdbs\key3.db szepenet-key3.db
 copy /Y empty-certdbs\secmod.db szepenet-secmod.db
 rmdir /Q /S empty-certdbs\
+
+pause

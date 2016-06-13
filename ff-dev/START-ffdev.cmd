@@ -15,7 +15,9 @@
 :: No trailing backslash in RAMDISK
 set RAMDISK="F:\ff-dev"
 set HOME_URL="https://szepe.net/"
-set SETUP_URL="https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US"
+rem set SETUP_URL="https://download.mozilla.org/?product=firefox-aurora-latest-ssl&os=win64&lang=en-US"
+rem set SETUP_URL="https://download.mozilla.org/?product=firefox-46.0.1-SSL&os=win&lang=en-US"
+set SETUP_URL="https://download.mozilla.org/?product=firefox-47.0b4-SSL&os=win&lang=en-US"
 
 :: Make sure we are in ff-dev\
 cd /D %~dp0
@@ -61,11 +63,17 @@ if EXIST .\szepenet-cert8.db if EXIST .\szepenet-key3.db if EXIST .\szepenet-sec
     copy /Y .\szepenet-secmod.db %PROFILEDIR%\secmod.db > NUL
 )
 
+:: Flash plugin
+rem mkdir "core\plugins\"
+rem copy "%SystemRoot%\SysWOW64\Macromed\Flash\NPSWF32_"*.dll "core\plugins\"
+
 :: Search engines
 if EXIST .\search-google1.xml (
     mkdir %PROFILEDIR%\searchplugins
     copy /Y .\search-google1.xml %PROFILEDIR%\searchplugins\ > NUL
 )
+
+:: @TODO Add uMatrix extension
 
 :: uBlock Origin extension
 rem DELETE FROM settings WHERE name != "advancedUserEnabled" and name != "webrtcIPAddressHidden";
@@ -86,7 +94,7 @@ if EXIST %EXT_DOTJS% copy /Y %EXT_DOTJS% .\core\browser\extensions\ > NUL
 
 :: Always Right extension
 set EXT_AWR=".\jid0-SzimoL45Ib8OddgoUBG0buQmjec@jetpack.xpi"
-set EXT_AWR_URL="https://addons.mozilla.org/firefox/downloads/file/304228/always_right-1.4-fx.xpi"
+set EXT_AWR_URL="https://addons.mozilla.org/firefox/downloads/latest/273653/addon-273653-latest.xpi"
 if NOT EXIST %EXT_AWR% (
     wget -nv -O %EXT_AWR% %EXT_AWR_URL%
 )
@@ -111,9 +119,9 @@ if NOT ERRORLEVEL 1 exit 1
 goto :EOF
 
 :: Bookmarks
-I'm feeling luck - kw:1 - https://encrypted.google.com/search?btnI=1&q=%s
+I'm feeling luck - kw:1 - https://encrypted.google.com/search?btnI=1&pws=0&q=%s
 
-:: Google consent
+:: Google consent cookie
 document.cookie = "CONSENT=YES+HU.hu+V2;domain=.google.hu;expires=Sun, 10-Jan-2038 07:59:59 GMT;path=/";
 
 :: ABP filters

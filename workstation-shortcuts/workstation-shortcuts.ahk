@@ -2,7 +2,7 @@
 # Assign Windows key and other shortcuts.
 #
 # ENCODING      :ANSI
-# VERSION       :0.1.0
+# VERSION       :0.2.0
 # DATE          :2015-09-18
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
@@ -10,7 +10,7 @@
 # AUTOHOTKEY    :1.1+
 # DEPENDS       :http://ahkscript.org/download/
 # DOCS          :http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts
-# LOCATION      :C:\bin\workstation-shortcuts\workstation-shortcuts.ahk 
+# LOCATION      :C:\usr\workstation-shortcuts\workstation-shortcuts.ahk 
 */
 
 ; @TODO
@@ -40,7 +40,7 @@ Menu, tray, Icon, %A_ScriptDir%\workstation-shortcuts.ico, 1
 Menu, tray, Tip, Workstation Shortcuts
 
 ; Globals
-BinDir := "C:\bin"
+UsrDir := "C:\usr"
 Return
 
 ExitHandler:
@@ -73,7 +73,7 @@ TrayTip, Browser Appliance,, 5, 1+16
 Return
 
 #c::
-Run, "%BinDir%\utl\CCalc.exe"
+Run, "%UsrDir%\bin\CCalc.exe"
 WinWait Console Calculator
 WinActivate
 TrayTip, CCalc, Console Calculator, 5, 1+16
@@ -81,14 +81,19 @@ Return
 
 #d::
 
+#e::
+Run, "explorer.exe"
+TrayTip, Explorer, Windows Explorer, 5, 1+16
+Return
+
 #i::
 Run, "%ProgramFiles%\IrfanView\i_view64.exe"
 TrayTip, IrfanView, A compact`, easy to use image viewer, 5, 1+16
 Return
 
-;#k::
+#k::
 Launch_Mail::
-Run, "%BinDir%\keepass\KeePass.exe"
+Run, "%UsrDir%\keepass\KeePass.exe"
 TrayTip, KeePass, Authentication database, 5, 1+16
 Return
 
@@ -113,13 +118,13 @@ TrayTip, Volume Control,, 5, 1+16
 Return
 
 #w::
-Run, "%BinDir%\utl\notepad2.exe"
+Run, "%UsrDir%\bin\notepad2.exe"
 TrayTip, Notepad2,, 5, 1+16
 Return
 
 #y::
-Run, "%BinDir%\utl\putty" -load vps
-TrayTip, Putty, SSH connection to "VPS", 5, 1+16
+Run, "%UsrDir%\bin\puttytray.exe" -load vps
+TrayTip, Putty, SSH connection to mail.szepe.net, 5, 1+16
 Return
 
 ShutDownNow:
@@ -137,7 +142,7 @@ Return
 
 EditThisScript:
 #F12::
-Run, "%BinDir%\utl\notepad2.exe" "%A_ScriptFullPath%"
+Run, "%UsrDir%\bin\notepad2.exe" "%A_ScriptFullPath%"
 Return
 
 ; Monitor off (DPMS)
@@ -147,7 +152,7 @@ SendMessage, 0x112, 0xF170, 2,, Program Manager
 Return
 
 ^!+c::
-Run, "diskpart.exe" /s "%BinDir%\utl\cyg-disk.dpt"
+Run, "diskpart.exe" /s "%UsrDir%\bin\cyg-disk.dpt"
 TrayTip, Cygwin mount,, 5, 1+16
 Return
 
@@ -166,6 +171,7 @@ TrayTip, MuseScore,, 5, 1+16
 Return
 
 Browser_Home::
+Media_Play_Pause::
 FF_PID := ProcessExist("firefox.exe")
 IfWinExist ahk_pid %FF_PID%
 {
@@ -212,7 +218,7 @@ ShutDownGui() {
 
 ShutDownIn(Seconds) {
     global BreakShutdown
-    global BinDir
+    global UsrDir
     TenthSeconds := Seconds * 10
     BreakShutdown := 0
     Loop, %TenthSeconds% {
@@ -224,7 +230,7 @@ ShutDownIn(Seconds) {
     Gui, Destroy
     ;Backup
     TrayTip, Backup, Backing up ..., 120, 1+16
-    RunWait, "%BinDir%\backup\backup-workstation.cmd",, Max
+    RunWait, "%UsrDir%\backup\backup-workstation.cmd",, Max
     TrayTip, Shutdown, Shuting down ..., 60, 2+16
     Shutdown, 1+8
 }

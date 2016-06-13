@@ -77,10 +77,10 @@ Autoruns.exe
 
 #### Applications
 
+- [Intel® Driver Update Utility](http://www.intel.com/support/detect.htm)
 - [CPUZ](http://www.cpuid.com/softwares/cpu-z.html) Disable monitoring
 - [HWMonitor](http://www.cpuid.com/softwares/hwmonitor.html)
 - [S.M.A.R.T. status viewer](http://www.passmark.com/products/diskcheckup.htm)
-- [Intel® Driver Update Utility.](http://www.intel.com/p/en_US/support/detect)
 - [HP SoftPaq Download Manager](http://www8.hp.com/us/en/ads/clientmanagement/drivers-bios.html)
 - [HP Support Assistant](http://www8.hp.com/us/en/campaigns/hpsupportassistant/hpsupport.html)
 - [Fujitsu DeskUpdate](http://support.ts.fujitsu.com/DeskUpdate/)
@@ -152,7 +152,10 @@ gpedit.msc / Administrative Templates / System / Mitigation Options / Untrusted 
 
 #### Settings commands
 
+[Control Panel Items](https://msdn.microsoft.com/en-us/library/ee330741(VS.85).aspx#DefaultPrograms)
+
 ```
+All  shell:::{ED7BA470-8E54-465E-825C-99712043E01C}
 Battery Saver  ms-settings:batterysaver
 Battery Saver Settings  ms-settings:batterysaver-settings
 Battery use  ms-settings:batterysaver-usagedetails
@@ -289,7 +292,7 @@ Usage in cmd.exe:
     - Portable: `Skype.exe /datapath:"path\to\profiles" /removable`
     - During call: Call / Call Technical Info
 - @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
-- [Chromium 64](https://storage.googleapis.com/chromium-browser-continuous/index.html?prefix=Win_x64/)
+- [Chromium 64 / NIK stable / No sync / Archive](http://chromium.woolyss.com/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
     - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
     - https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk
@@ -323,6 +326,16 @@ Also on http://mirror.szepe.net/software/
 
 Scheduled task import: `Task-Event log alert.xml`
 
+Exclude "DistributedCOM 10016"
+
+```xml
+    <Suppress Path="Application">*[System[(EventID=10016)]]</Suppress>
+    <Suppress Path="Security">*[System[(EventID=10016)]]</Suppress>
+    <Suppress Path="Setup">*[System[(EventID=10016)]]</Suppress>
+    <Suppress Path="System">*[System[(EventID=10016)]]</Suppress>
+    <Suppress Path="ForwardedEvents">*[System[(EventID=10016)]]</Suppress>
+```
+
 ```batch
 wevtutil qe Application "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
 wevtutil qe Security "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
@@ -345,16 +358,17 @@ wevtutil qe ForwardedEvents "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:
 - https://www.rollapp.com/ (Unubtu)
 - https://turbo.net/ (WINE)
 
-### /usr/local/bin on Windows
+### /usr/bin on Windows
 
 Create folder and prepend to PATH
 
+Prepend: `%SystemDrive%\usr\bin;`
+
 ```batch
-mkdir %SystemDrive%\bin\utl
+mkdir %SystemDrive%\usr\bin
 SystemPropertiesAdvanced.exe
 ```
 
-Prepend: `%SystemDrive%\bin\utl;`
 
 ### wget
 
@@ -369,14 +383,14 @@ Binary: https://eternallybored.org/misc/wget/
 7za e -t# "./ca-certificates_*_all.deb" "4.xz"
 7za e "4.xz"
 7za e -o.\bundle "4" ".\usr\share\ca-certificates\mozilla\*.crt"
-type ".\bundle\*.crt" > "C:\bin\utl\ca-certificates.crt"
+type ".\bundle\*.crt" > "C:\usr\bin\ca-certificates.crt"
 del /Q "ca-certificates_*_all.deb" "4.xz" "4" "bundle"
 ```
 
 ```ini
-## C:\bin\utl\.wgetrc
+## C:\usr\bin\.wgetrc
 
-ca-certificate = C:/bin/utl/ca-certificates.crt
+ca-certificate = C:/usr/bin/ca-certificates.crt
 content-disposition = on
 #default: ca-certificate = c:/ssl/ssl/cert.pem
 #http_proxy = http://192.168.2.161:8080/
@@ -386,7 +400,7 @@ content-disposition = on
 
 ### KeePass
 
-Binary: http://keepass.info/download.html `C:\bin\keepass\`
+Binary: http://keepass.info/download.html `C:\usr\keepass\`
 
 Tools / Options / Security / Enter Master Key on Secure Desktop `cacls auth-data.kdbx /P PC\User:F`
 
@@ -397,6 +411,10 @@ Tools / Options / Integration tab / URL overrides...
 - lftp: `cmd://cmd.exe /C "echo lftp -e 'set ftp:ssl-allow 0;' -u '{USERNAME},{PASSWORD}' ftp://{BASE:HOST} && pause"`
 - sshp: `cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
 - rdp:  `cmd://mstsc.exe /v:{BASE:RMVSCM}`
+
+#### QR code reader with webcam
+
+[bcWebCam](http://www.bcwebcam.de/en/index.html) .NET
 
 #### Plugins
 
@@ -409,11 +427,12 @@ Tools / Options / Integration tab / URL overrides...
 ### Putty
 
 ```batch
-wget -nv -N -P C:\bin\utl\ http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
-wget -nv -N -P C:\bin\utl\ http://the.earth.li/~sgtatham/putty/latest/x86/pscp.exe
-wget -nv -N -P C:\bin\utl\ http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe
-wget -nv -N -P C:\bin\utl\ https://github.com/altercation/solarized/raw/master/putty-colors-solarized/solarized_dark.reg
-wget -nv -N -P C:\bin\utl\ https://github.com/altercation/solarized/raw/master/putty-colors-solarized/solarized_light.reg
+cd \usr\bin
+wget -nv -N http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
+wget -nv -N http://the.earth.li/~sgtatham/putty/latest/x86/pscp.exe
+wget -nv -N http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe
+wget -nv -N https://github.com/altercation/solarized/raw/master/putty-colors-solarized/solarized_dark.reg
+wget -nv -N https://github.com/altercation/solarized/raw/master/putty-colors-solarized/solarized_light.reg
 ```
 
 Alternatives
@@ -437,7 +456,7 @@ Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-deve
 
 ### Virtualization
 
-- Hyper-V `virtmgmt.msc` `bcdedit /set hypervisorlaunchtype Auto`
+- Hyper-V: enable in BIOS, `bcdedit /set hypervisorlaunchtype Auto` , `virtmgmt.msc`
 - [VMware Workstation Player](https://www.vmware.com/products/player/playerpro-evaluation.html)
 - [VirtualBox installer](https://www.virtualbox.org/wiki/Downloads)
 
@@ -479,7 +498,7 @@ rem detach vdisk
 
 ```batch
 :: Mount Cygwin vdisk --- cygpart-mount.cmd ---
-@diskpart /s "C:\bin\utl\cyg-disk.dpt"
+@diskpart /s "C:\usr\bin\cyg-disk.dpt"
 ```
 
 #### Shortcut target

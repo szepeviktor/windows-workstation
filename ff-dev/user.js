@@ -36,7 +36,9 @@ user_pref("dom.telephony.enabled",		false);
 // https://developer.mozilla.org/en-US/docs/Web/API/navigator.sendBeacon
 user_pref("beacon.enabled",		false);
 // https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/dom.event.clipboardevents.enabled
-user_pref("dom.event.clipboardevents.enabled",		false);
+//user_pref("dom.event.clipboardevents.enabled",		false);
+// snag.gy - Allow pasting images
+user_pref("dom.event.clipboardevents.enabled",		true);
 // https://wiki.mozilla.org/Security/Reviews/Firefox/NavigationTimingAPI
 user_pref("dom.enable_performance",		false);
 
@@ -94,7 +96,7 @@ user_pref("webgl.disabled",		true);
 user_pref("camera.control.face_detection.enabled",    false);
 
 // Default search engine
-//user_pref("browser.search.defaultenginename",		"DuckDuckGo");
+user_pref("browser.search.defaultenginename",		"Google");
 
 // http://kb.mozillazine.org/Clipboard.autocopy
 user_pref("clipboard.autocopy",		false);
@@ -712,6 +714,11 @@ user_pref("browser.displayedE10SPrompt.1", 1);
 user_pref("browser.displayedE10SNotice", 4);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+/******************************************************************************
+ * Custom settings                                                            *
+ *                                                                            *
+ ******************************************************************************/
+
 // e10s
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
@@ -722,3 +729,9 @@ user_pref("extensions.enabledScopes", 5); // 15 - 8 - 2 = ALL - SCOPE_SYSTEM - S
 
 // uBlock Origin
 user_pref("extensions.ublock0.adminSettings", '{"userSettings":{"advancedUserEnabled":true,"webrtcIPAddressHidden":true},"netWhitelist":"paypal.com\\nstartssl.com\\nszepe.net"}');
+
+// Proxy by putty
+user_pref("network.proxy.type", 1);
+user_pref("network.proxy.socks", "localhost");
+user_pref("network.proxy.socks_port", 4096);
+user_pref("network.proxy.socks_remote_dns", true);

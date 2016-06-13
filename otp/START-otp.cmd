@@ -6,6 +6,7 @@
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>
 :: DOCS         :https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
 :: DEPENDS      :7za.exe from 7z*-extra.7z in http://sourceforge.net/projects/sevenzip/files/7-Zip/
+:: DEPENDS      :wget.exe https://eternallybored.org/misc/wget/ https://github.com/szepeviktor/windows-workstation#wget
 
 set HOME_URL="https://www.otpbank.hu/portal/hu/OTPdirekt/Belepes"
 set SETUP_URL="https://download.mozilla.org/?product=firefox-latest&os=win64&lang=hu"
@@ -16,7 +17,7 @@ call :Exit_if_running "%CD%"
 
 :: Download installer
 title Checking/downloading installer ...
-if NOT EXIST .\"Firefox Setup"*.exe wget -nv %SETUP_URL%
+if NOT EXIST .\"Firefox Setup"*.exe wget -nv --content-disposition %SETUP_URL%
 7za l -y .\"Firefox Setup"*.exe > NUL || (
     del /Q .\"Firefox Setup"*.exe
     wget -nv --content-disposition %SETUP_URL%
@@ -36,11 +37,11 @@ mkdir %PROFILEDIR%
 :: Remove built-in certificates
 del /Q .\core\nssckbi.dll
 
-:: Add known certificates
-if EXIST .\all-but-otp\cert8.db if EXIST .\all-but-otp\key3.db if EXIST .\all-but-otp\secmod.db (
-    copy /Y .\all-but-otp\cert8.db %PROFILEDIR%\cert8.db
-    copy /Y .\all-but-otp\key3.db %PROFILEDIR%\key3.db
-    copy /Y .\all-but-otp\secmod.db %PROFILEDIR%\secmod.db
+:: Premade certificate and key databases
+if EXIST .\certdbs\cert8.db if EXIST .\certdbs\key3.db if EXIST .\certdbs\secmod.db (
+    copy /Y .\certdbs\cert8.db %PROFILEDIR%\cert8.db
+    copy /Y .\certdbs\key3.db %PROFILEDIR%\key3.db
+    copy /Y .\certdbs\secmod.db %PROFILEDIR%\secmod.db
 )
 
 :: Settings
