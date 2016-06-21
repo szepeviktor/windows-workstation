@@ -6,7 +6,9 @@
 - Model #: XM856AV
 - Serial #: CZC13941PV
 
-# Windows 10 "Light"
+### Windows 10 "Light"
+
+[Download Windows 10 ISO from Microsoft](https://www.microsoft.com/en-us/software-download/techbench)
 
 Reinstall Apps:
 
@@ -116,37 +118,37 @@ powercfg.cpl
 :: Hibernate command: shutdown /t 0 /f /h
 ```
 
-#### Disable Windows key combinations
+#### Disable Windows key combinations (user)
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1
 ```
 
-#### Show known file extensions
+#### Show known file extensions (user)
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
 ```
 
-#### Don't display delete confirmation
+#### Don't display delete confirmation (user)
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "ConfirmFileDelete" /t REG_DWORD /d 0 /f
 ```
 
-### Disable remote assistance (Terminal Server)
+#### Disable Terminal Server aka. remote assistance
 
 ```batch
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v "fDenyTSConnections" /t REG_DWORD /d 1 /f
 ```
 
-### Show analogue clock
+#### Show analogue clock
 
 ```batch
 reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /v "UseWin32TrayClockExperience" /t REG_DWORD /d 1 /f
 ```
 
-### Untrusted Font Blocking in IE
+#### Untrusted Font Blocking in IE
 
 gpedit.msc / Administrative Templates / System / Mitigation Options / Untrusted Font Blocking / "Do not block untrusted fonts"
 

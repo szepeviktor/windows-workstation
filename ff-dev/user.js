@@ -97,6 +97,8 @@ user_pref("camera.control.face_detection.enabled",    false);
 
 // Default search engine
 user_pref("browser.search.defaultenginename",		"Google");
+user_pref("browser.search.isUS",        false);
+user_pref("browser.search.geoSpecificDefaults",        false);
 
 // http://kb.mozillazine.org/Clipboard.autocopy
 user_pref("clipboard.autocopy",		false);
@@ -176,7 +178,7 @@ user_pref("devtools.netmonitor.enabled", false);
  ******************************************************************************/
 
 // Require signatures
-//user_pref("xpinstall.signatures.required",   true);
+user_pref("xpinstall.signatures.required",   true);
 
 // Opt-out of add-on metadata updates
 // https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
@@ -262,7 +264,6 @@ user_pref("app.update.auto", false);
 // Disable updates
 user_pref("app.update.enabled", false);
 user_pref("app.update.service.enabled", false);
-user_pref("browser.search.update", false);
 user_pref("extensions.update.enabled", false);
 
 // CIS 2.3.4 Block Reported Web Forgeries

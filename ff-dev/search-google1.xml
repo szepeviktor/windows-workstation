@@ -4,9 +4,11 @@
   <Description>Search Google with I'm feeling Lucky</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <LongName>Google I'm Feeling Lucky</LongName>
-  <Image width="16" height="16" type="image/x-icon">https://encrypted.google.com/favicon.ico</Image>
+  <!--Image width="16" height="16" type="image/x-icon">https://encrypted.google.com/favicon.ico</Image-->
+  <Image width="75" height="75" type="image/x-icon">https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/NYCS-bull-trans-1.svg/75px-NYCS-bull-trans-1.svg.png</Image>
   <Url type="text/html" method="get" template="https://encrypted.google.com/search"> 
     <Param name="btnI" />
+    <Param name="pws" value="0"/>
     <Param name="q" value="{searchTerms}"/>
   </Url>
 </OpenSearchDescription> 

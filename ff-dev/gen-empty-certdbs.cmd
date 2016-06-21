@@ -2,6 +2,7 @@
 :: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil
 :: https://github.com/christian-korneck/firefox_add-certs/releases
 
+rem :: Old method
 rem 7za x -y .\firefox-*.exe "core\"
 rem start /WAIT core\firefox.exe -no-remote -profile empty-certdbs\
 rem :: Quit Firefox!

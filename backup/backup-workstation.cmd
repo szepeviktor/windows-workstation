@@ -1,16 +1,16 @@
 @echo off & goto :START
 #
-# Assign Windows key and other shortcuts.
+# Backup the workstation.
 #
-# VERSION       :1.2.1
+# VERSION       :1.2.2
 # DATE          :2015-10-11
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/tree/master/backup
 # LICENSE       :The MIT License (MIT)
 # ENCODING      :UTF-8
 # DEPENDS       :http://mattmahoney.net/dc/zpaq.html
-# CONFIG        :C:\bin\backup\backup-auth.files
-# LOCATION      :C:\bin\backup\backup-workstation.cmd
+# CONFIG        :C:\usr\backup\backup-auth.files
+# LOCATION      :C:\usr\backup\backup-workstation.cmd
 
 # Restore
 #
@@ -23,13 +23,14 @@
 :: Backup parameters
 set BACKUP_ROOT="E:\backup"
 :: No quotes!
-set ENC_KEY=C:\bin\backup\enc.key
+set ENC_KEY=C:\usr\backup\enc.key
 :: Things to backup
-set BCK_BACKUP="C:\bin\backup"
-set BCK_AUTH="C:\bin\backup\backup-auth.files"
+set BCK_BACKUP="C:\usr\backup"
+set BCK_AUTH="C:\usr\backup\backup-auth.files"
 set BCK_REG="%USERPROFILE%\reg"
-set BCK_UTL="C:\bin\utl\*.cmd"
-set BCK_UTL_LIST="C:\bin\utl\utl-files.txt"
+set BCK_FFDEV="C:\usr\ff-dev\places.sqlite"
+set BCK_UTL="C:\usr\bin\*.cmd"
+set BCK_UTL_LIST="C:\usr\bin\utl-files.txt"
 
 :: UTF-8 output
 chcp 65001 > nul
@@ -66,13 +67,16 @@ call :ZPAQA utl %BCK_UTL%
 
 ::--------------------------------------
 
-:: Total Comamnder settings
+:: ff-dev bookmarks
+call :ZPAQA ffdev %BCK_FFDEV%
+
+:: Total Commander settings
 call :ZPAQA tcmd "%APPDATA%\GHISLER"
 
-:: IrfanViewr settings
+:: IrfanView settings
 call :ZPAQA irfanv "%APPDATA%\IrfanView"
 
-:: Windows Theme
+:: Windows theme
 call :ZPAQA windows-themes "%LOCALAPPDATA%\Microsoft\Windows\Themes"
 
 :: Launchy settings
