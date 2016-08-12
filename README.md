@@ -10,10 +10,18 @@
 
 [Download Windows 10 ISO from Microsoft](https://www.microsoft.com/en-us/software-download/techbench)
 
-Reinstall Apps:
+Windows phone activation: `slui.exe 4`
+
+Reinstall all Apps:
 
 ```powershell
-Get-AppxPackage -AllUsers|Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+Get-AppxPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+```
+
+Remove an App:
+
+```powershell
+Get-AppxPackage *skypeapp* | Remove-AppxPackage
 ```
 
 ```batch
@@ -24,15 +32,15 @@ Get-AppxPackage -AllUsers|Foreach {Add-AppxPackage -DisableDevelopmentMode -Regi
 :: http://www.thewindowsclub.com/ultimate-windows-tweaker-4-windows-10
 
 :: Remove OneDrive
-reg ADD "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows" /v "DisableFileSyncNGSC" /t REG_DWORD /d 1 /f
+reg ADD "HKLM\Software\Policies\Microsoft\Windows" /v "DisableFileSyncNGSC" /t REG_DWORD /d 1 /f
 taskkill /f /im OneDrive.exe
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 rd "%UserProfile%\OneDrive" /Q /S
 rd "%LocalAppData%\Microsoft\OneDrive" /Q /S
 rd "%ProgramData%\Microsoft OneDrive" /Q /S
 rd "C:\OneDriveTemp" /Q /S
-reg DELETE "HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
-reg DELETE "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
+reg DELETE "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
+reg DELETE "HKCR\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 
 :: Remove Defender
 :: C:\Program Files\Windows Defender\MSASCui.exe
@@ -59,10 +67,10 @@ sc config RemoteRegistry start= disabled
 
 :: Check drivers
 :: http://www.nirsoft.net/utils/driverview.html
-sc query type= driver|find "_NAME:"
+sc query type= driver | find "_NAME:"
 
 :: https://www.devside.net/wamp-server/opening-up-port-80-for-apache-to-use-on-windows
-rem netsh http show urlacl|find "Reserved URL"
+rem netsh http show urlacl | find "Reserved URL"
 rem netsh http show servicestate
 rem net stop HTTP
 rem sc config HTTP start= disabled
@@ -121,7 +129,7 @@ powercfg.cpl
 #### Disable Windows key combinations (user)
 
 ```batch
-reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1
+reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1 /f
 ```
 
 #### Show known file extensions (user)
@@ -134,6 +142,14 @@ reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "H
 
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "ConfirmFileDelete" /t REG_DWORD /d 0 /f
+```
+
+### Disable NTFS last access update
+
+If you have spinning drives.
+
+```batch
+reg ADD "HKCU\SYSTEM\CurrentControlSet\Control\FileSystem" /v "NtfsDisableLastAccessUpdate" /t REG_DWORD /d 0 /f
 ```
 
 #### Disable Terminal Server aka. remote assistance
@@ -265,6 +281,12 @@ Usage in cmd.exe:
 
 ### Windows Updates
 
+Disable reboot after update
+
+```batch
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRebootWithLoggedOnUsers" /t REG_DWORD /d 1 /f
+```
+
 [Windows Update MiniTool](http://forum.ru-board.com/topic.cgi?forum=5&topic=48142#2)
 
 ### Applications
@@ -371,12 +393,11 @@ mkdir %SystemDrive%\usr\bin
 SystemPropertiesAdvanced.exe
 ```
 
-
 ### wget
 
 Binary: https://eternallybored.org/misc/wget/
 
-*https://github.com/bagder/ca-bundle/raw/master/ca-bundle.crt*
+Mozilla CA certificate store: https://curl.haxx.se/ca/cacert.pem
 
 ##### CA download
 
@@ -414,17 +435,19 @@ Tools / Options / Integration tab / URL overrides...
 - sshp: `cmd://putty.exe -ssh -P {BASE:PORT} {USERNAME}@{BASE:RMVSCM}`
 - rdp:  `cmd://mstsc.exe /v:{BASE:RMVSCM}`
 
+#### Plugins
+
+`C:\usr\keepass\Plugins\`
+
+- SSH agent http://lechnology.com/software/keeagent/#download
+- XKCD-style passwords https://readablepassphrase.codeplex.com/releases directory
+- TOTP (2FA) https://bitbucket.org/devinmartin/keeotp/overview directory
+- *SCP, SFTP, FTPS http://keepass.info/plugins.html#ioprotocolext
+- *S3, Azure Blob, Dropbox https://bitbucket.org/devinmartin/keecloud/downloads
+
 #### QR code reader with webcam
 
 [bcWebCam](http://www.bcwebcam.de/en/index.html) .NET
-
-#### Plugins
-
-- http://lechnology.com/software/keeagent/#download `\plugin-KeeAgent\`
-- https://readablepassphrase.codeplex.com/releases `\plugin-ReadablePassphrase\`
-- http://keepass.info/plugins.html#ioprotocolext
-- https://bitbucket.org/devinmartin/keecloud/downloads
-- https://addons.mozilla.org/en-US/firefox/addon/keefox/
 
 ### Putty
 
