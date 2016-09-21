@@ -8,7 +8,7 @@
 
 ### Windows 10 "Light"
 
-[Download Windows 10 ISO from Microsoft](https://www.microsoft.com/en-us/software-download/techbench)
+[Download Windows 10 ISO tool from Microsoft](https://www.microsoft.com/en-us/software-download/windows10)
 
 Windows phone activation: `slui.exe 4`
 
@@ -144,7 +144,7 @@ reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "H
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "ConfirmFileDelete" /t REG_DWORD /d 0 /f
 ```
 
-### Disable NTFS last access update
+#### Disable NTFS last access update
 
 If you have spinning drives.
 
@@ -256,11 +256,12 @@ See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd` for `shell:
 
 Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 
-### Network and ISP
+#### Network and ISP
 
 - IPv6 connectivity
 - DNS resolvers
 - NTP server
+- Blocked SMTP port (25/TCP)
 - [BCP38 Spoofer](https://spoofer.caida.org/)
 
 #### Fonts
@@ -291,6 +292,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 
 ### Applications
 
+- [Dataram RAMDisk](http://memory.dataram.com/products-and-services/software/ramdisk/ramdisk-releases)
 - [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
 - [Precise time for Windows](https://www.meinbergglobal.com/english/sw/ntp.htm) (ntpd)
 - [Startup Delayer 64](http://www.r2.com.au/page/products/download/startup-delayer/)
