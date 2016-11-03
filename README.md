@@ -284,6 +284,8 @@ Usage in cmd.exe:
 
 Disable reboot after update
 
+Task Scheduler Library / Microsoft / Windows / UpdateOchestrator / Reboot right-click / Disable
+
 ```batch
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRebootWithLoggedOnUsers" /t REG_DWORD /d 1 /f
 ```
@@ -312,6 +314,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Total Commander 64](http://www.ghisler.com/amazons3.php)
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
+- [Media Player Classic - BE](https://sourceforge.net/projects/mpcbe/files/MPC-BE/)
 - [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
     - [Skype official full installer](http://www.skype.com/go/getskype-full)
@@ -381,7 +384,7 @@ wevtutil qe ForwardedEvents "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:
 ### Virtualize Windows applications
 
 - http://www.cameyo.com/ (Windows Server)
-- https://www.rollapp.com/ (Unubtu)
+- https://www.rollapp.com/ (Ubuntu)
 - https://turbo.net/ (WINE)
 
 ### /usr/bin on Windows
@@ -423,6 +426,12 @@ content-disposition = on
 #verbose = on
 ```
 
+### OpenSSL
+
+https://indy.fulgan.com/SSL/ ZIP: `openssl-*-x64_86-win64.zip` `C:\usr\openssl\`
+
+`echo CAfile = C:/usr/bin/cacert.pem> C:\usr\openssl\openssl.cnf`
+
 ### KeePass
 
 Binary: http://keepass.info/download.html `C:\usr\keepass\`
@@ -441,11 +450,11 @@ Tools / Options / Integration tab / URL overrides...
 
 `C:\usr\keepass\Plugins\`
 
-- SSH agent http://lechnology.com/software/keeagent/#download
-- XKCD-style passwords https://readablepassphrase.codeplex.com/releases directory
-- TOTP (2FA) https://bitbucket.org/devinmartin/keeotp/overview directory
-- *SCP, SFTP, FTPS http://keepass.info/plugins.html#ioprotocolext
-- *S3, Azure Blob, Dropbox https://bitbucket.org/devinmartin/keecloud/downloads
+- [KeeAgent](http://lechnology.com/software/keeagent/#download) (SSH agent)
+- [KeeOtp](https://bitbucket.org/devinmartin/keeotp/downloads) (TOTP 2FA)
+- [Readable Passphrase Generator](https://readablepassphrase.codeplex.com/releases) (XKCD-style passwords)
+- * [IOProtocolExt](http://keepass.info/plugins.html#ioprotocolext) (SCP, SFTP, FTPS)
+- * [KeeCloud](https://bitbucket.org/devinmartin/keecloud/downloads) (S3, Azure Blob, Dropbox)
 
 #### QR code reader with webcam
 
