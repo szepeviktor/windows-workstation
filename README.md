@@ -77,6 +77,10 @@ rem sc config HTTP start= disabled
 
 :: Check missing files
 Autoruns.exe
+
+:: https://support.microsoft.com/en-us/kb/929833
+sfc /VERIFYONLY
+rem sfc /SCANNOW
 ```
 
 ### Hardware related software

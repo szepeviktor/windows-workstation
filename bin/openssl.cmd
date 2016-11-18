@@ -1,6 +1,6 @@
 @echo off
 ::
-:: Disposable browser.
+:: OpenSSL command line tool.
 ::
 :: INSTALLERS   :https://indy.fulgan.com/SSL/openssl-1.0.2j-x64_86-win64.zip
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>

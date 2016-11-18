@@ -5,6 +5,8 @@ Create second **ext4** partition on external SD card with [MiniTool Partition Wi
 - [KingoRoot](https://root-apk.kingoapp.com/)
 - [Link2SD](https://play.google.com/store/apps/details?id=com.buak.Link2SD)
 - [CCleaner](https://play.google.com/store/apps/details?id=com.piriform.ccleaner)
+- [Vysor](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm)
+- https://www.clockworkmod.com/
 
 https://f-droid.org/
 
