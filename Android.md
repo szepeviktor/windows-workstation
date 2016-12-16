@@ -7,6 +7,7 @@ Create second **ext4** partition on external SD card with [MiniTool Partition Wi
 - [CCleaner](https://play.google.com/store/apps/details?id=com.piriform.ccleaner)
 - [Vysor](https://chrome.google.com/webstore/detail/vysor/gidgenkbbabolejbgbpnhbimgjbffefm)
 - https://www.clockworkmod.com/
+- [Root Certificate Manager](https://play.google.com/store/apps/details?id=net.jolivier.cert.Importer)
 
 https://f-droid.org/
 

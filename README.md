@@ -308,6 +308,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
     - http://sourceforge.net/projects/tasky-launchy/files/
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
 - [WinCompose](https://github.com/samhocevar/wincompose)
+- [Caret Premium Markdown Editor](https://caret.io/)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
