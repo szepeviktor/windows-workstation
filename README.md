@@ -563,6 +563,13 @@ wget -nv -P /usr/local/sbin "https://github.com/transcode-open/apt-cyg/raw/maste
 chmod +x /usr/local/sbin/apt-cyg
 ```
 
+#### Cygwin/X (XWin)
+
+- `xorg-server`
+- `xinit`
+
+Application example: `fontforge`
+
 ## Backup steps
 
 1. Run `backup-workstation.cmd` on Windows shutdown
