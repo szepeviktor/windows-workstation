@@ -53,6 +53,19 @@ SixXS
 - Native/PPP
 - DNS 2001:4860:4860::8888 2001:4860:4860::8844
 
+### [Entware-ng](https://github.com/Entware-ng/Entware-ng)
+
+Architecture: mipsel
+
+- `mkfs.ext3 /dev/sda1 && mount /dev/sda1 /tmp/mnt/entware`
+- https://github.com/RMerl/asuswrt-merlin/raw/master/release/src/router/others/entware-setup.sh
+- Upgrade from Entware: http://pkg.entware.net/binaries/mipsel/installer/upgrade.sh
+
+[Tomato by Shibby](http://tomato.groov.pl/?page_id=164)
+[AdvancedTomato](https://advancedtomato.com/downloads)
+
+[Install SSL certificate](https://gist.github.com/davidbalbert/6815258)
+
 ### Backup
 
 ```bash
