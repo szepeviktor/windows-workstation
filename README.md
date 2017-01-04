@@ -303,6 +303,8 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Precise time for Windows](https://www.meinbergglobal.com/english/sw/ntp.htm) (ntpd)
 - [Startup Delayer 64](http://www.r2.com.au/page/products/download/startup-delayer/)
 - [Notifu](http://www.paralint.com/projects/notifu/#Download)
+- [Keypirinha](http://keypirinha.com/)
+    - [System Commands](https://github.com/psistorm/keypirinha-systemcommands)
 - [Launchy](http://www.launchy.net/download.php#windows)
     - https://github.com/Netrics/putty-launchy-plugin/releases
     - http://sourceforge.net/projects/tasky-launchy/files/
@@ -329,13 +331,13 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Chromium 64 / NIK stable / No sync / Archive](http://chromium.woolyss.com/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
     - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
+    - https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
     - https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk
     - https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna
     - https://chrome.google.com/webstore/detail/fb-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc
     - https://chrome.google.com/webstore/detail/seoquake/akdgnmcogleenhbclghghlkkdndkjdjc
     - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
     - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
-    - https://chrome.google.com/webstore/detail/disconnect/jeoacafpbcihiomhlakheieifhpjdfeo
 - [UltraVNC 64](http://www.uvnc.com/downloads/ultravnc.html) Listen on port 5500
 - [UltraVNC SC](http://www.uvnc.com/docs/uvnc-sc.html)
 - [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
@@ -403,7 +405,7 @@ mkdir %SystemDrive%\usr\bin
 SystemPropertiesAdvanced.exe
 ```
 
-### wget
+### Wget
 
 Binary: https://eternallybored.org/misc/wget/
 
@@ -495,6 +497,25 @@ Fullscreen screenshot: Shift + F2 `screenshot --fullpage --clipboard`
 
 Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-developer/
 
+### Keypirinha
+
+`Profile\User\Keypirinha.ini`
+
+```ini
+[app]
+launch_at_startup = yes
+hotkey_run = Alt+F1
+
+[gui]
+always_on_top = yes
+hide_on_focus_lost = immediate
+retain_last_search = yes
+escape_always_closes = yes
+show_on_taskbar = no
+show_scores = no
+show_history_hits = no
+```
+
 ### Virtualization
 
 - Hyper-V: enable in BIOS, `bcdedit /set hypervisorlaunchtype Auto` , `virtmgmt.msc`
@@ -510,6 +531,7 @@ Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-deve
 - [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
 - [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
 - [Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)
+- [Bulk Crap Uninstaller](http://klocmansoftware.weebly.com/) [BCUninstaller source](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
 ### Cygwin
 
