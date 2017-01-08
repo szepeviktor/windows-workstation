@@ -305,6 +305,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Notifu](http://www.paralint.com/projects/notifu/#Download)
 - [Keypirinha](http://keypirinha.com/)
     - [System Commands](https://github.com/psistorm/keypirinha-systemcommands)
+- [ConsoleZ](https://github.com/cbucher/console/wiki)
 - [Launchy](http://www.launchy.net/download.php#windows)
     - https://github.com/Netrics/putty-launchy-plugin/releases
     - http://sourceforge.net/projects/tasky-launchy/files/
