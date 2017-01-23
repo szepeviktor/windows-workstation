@@ -294,6 +294,8 @@ Task Scheduler Library / Microsoft / Windows / UpdateOchestrator / Reboot right-
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRebootWithLoggedOnUsers" /t REG_DWORD /d 1 /f
 ```
 
+[chmod -x MusNotification.exe](http://superuser.com/a/1006199)
+
 [Windows Update MiniTool](http://forum.ru-board.com/topic.cgi?forum=5&topic=48142#2)
 
 ### Applications
@@ -531,8 +533,13 @@ show_history_hits = no
 - [NoVirusThanks tools](http://www.novirusthanks.org/)
 - [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
 - [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
+- [Zemana AntiMalware](https://zemana.com/en-US/Download)
 - [Bitdefender Adware Removal Tool](http://www.bitdefender.com/solutions/adware-removal-tool-for-pc.html)
 - [Bulk Crap Uninstaller](http://klocmansoftware.weebly.com/) [BCUninstaller source](https://github.com/Klocman/Bulk-Crap-Uninstaller)
+
+- [Malwarebytes Anti-Rootkit Beta](https://www.malwarebytes.com/antirootkit/)
+- [Kaspersky TDSSKiller](https://usa.kaspersky.com/downloads/TDSSKiller)
+- https://www.sophos.com/products/free-tools/sophos-anti-rootkit.aspx
 
 ### Cygwin
 
