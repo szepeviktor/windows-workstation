@@ -1,7 +1,7 @@
 /*
 # Assign Windows key and other shortcuts.
 #
-# ENCODING      :ANSI
+# ENCODING      :ANSI or UTF-8 BOM
 # VERSION       :0.2.0
 # DATE          :2015-09-18
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
@@ -33,8 +33,8 @@
 
 ; Tray
 Menu, tray, NoStandard
-Menu, tray, add, Edit script, EditThisScript
 Menu, tray, add, Shutdown, ShutDownNow
+Menu, tray, add, Edit script, EditThisScript
 Menu, tray, add, Exit, ExitHandler
 Menu, tray, Icon, %A_ScriptDir%\workstation-shortcuts.ico, 1
 Menu, tray, Tip, Workstation Shortcuts
@@ -68,13 +68,13 @@ TrayTip, szerver4f, Virtualbox machine, 5, 1+16
 Return
 
 #b::
-Run "E:\browser-appliance\START-ba.cmd"
+Run "%UsrDir%\otp\START-otp.cmd"
 TrayTip, Browser Appliance,, 5, 1+16
 Return
 
 #c::
 Run, "%UsrDir%\bin\CCalc.exe"
-WinWait Console Calculator
+WinWait, Console Calculator
 WinActivate
 TrayTip, CCalc, Console Calculator, 5, 1+16
 Return
@@ -172,7 +172,7 @@ Return
 
 Browser_Home::
 Media_Play_Pause::
-FF_PID := ProcessExist("firefox.exe")
+FF_PID := ProcessExist("waterfox.exe")
 IfWinExist ahk_pid %FF_PID%
 {
     WinActivate

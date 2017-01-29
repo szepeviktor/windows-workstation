@@ -19,25 +19,30 @@ set SETUP_URL="https://storage-waterfox.netdna-ssl.com/releases/win64/installer/
 set SETUP_WILDCARD=Waterfox*Setup.exe
 set CORE_DIR=core
 set BINARY=waterfox.exe
+set PROFILEDIR=".\data"
 
 :: Make sure we are in ff-dev\
 cd /D %~dp0
 call :Exit_if_running "%CD%"
+set ORIGINALDIR="%CD%"
 
-:: Download US English installer
+:: Download installer
 title Checking/downloading installer ...
 if NOT EXIST .\%SETUP_WILDCARD% wget -nv %SETUP_URL%
-:: Check installer integrity
+
+:: Check installer's integrity
 7za l -y .\%SETUP_WILDCARD% > NUL || (
     del /Q .\%SETUP_WILDCARD%
+    :: Redownload installer
     wget -nv %SETUP_URL%
     7za l -y .\%SETUP_WILDCARD% > NUL || exit 2
 )
 
 :: Set root path
 title Detecting RAMDISK ...
-set ORIGINALDIR="%CD%"
 call :Exit_if_running %RAMDISK%
+
+:: Use RAM disk if available
 if EXIST %RAMDISK:~1,3% (
     xcopy /Y . %RAMDISK%\ > NUL
     cd /D %RAMDISK%
@@ -48,9 +53,11 @@ title %CD%
 
 :: Unpack installer - Don't use ".\%CORE_DIR%\"
 7za x -y .\%SETUP_WILDCARD% "%CORE_DIR%\"
+
 :: Prevent pending updates
 rmdir /Q /S %LOCALAPPDATA%\Mozilla\Firefox\firefox\updates\ > NUL 2>&1
-set PROFILEDIR=".\data"
+
+:: Create profile directory
 mkdir %PROFILEDIR%
 
 :: Permanent files
@@ -75,32 +82,21 @@ if EXIST .\search-google1.xml (
 )
 
 :: Extension version check (XML response)
-:: https://wiki.mozilla.org/AMO:Users/Checking_For_Updates https://addons.mozilla.org/update/VersionCheck.php?reqVersion=1&id=%EXT_ID%&version=%EXT_VER%&maxAppVersion=43.0&status=userEnabled&appID={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appVersion=46.0.1&appOS=WINNT&appABI=x86_64-msvc&locale=en-US&currentAppVersion=46.0.1&updateType=97&compatMode=normal
+:: https://wiki.mozilla.org/AMO:Users/Checking_For_Updates
+:: https://addons.mozilla.org/update/VersionCheck.php?reqVersion=1&id=%EXT_ID%&version=%EXT_VER%&maxAppVersion=43.0&status=userEnabled&appID={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appVersion=46.0.1&appOS=WINNT&appABI=x86_64-msvc&locale=en-US&currentAppVersion=46.0.1&updateType=97&compatMode=normal
 
 :: uBlock Origin extension
 rem DELETE FROM settings WHERE name != "advancedUserEnabled" and name != "webrtcIPAddressHidden";
-set EXT_UBO=".\uBlock0@raymondhill.net.xpi"
-set EXT_UBO_URL="https://addons.mozilla.org/firefox/downloads/latest/607454/addon-607454-latest.xpi"
-if NOT EXIST %EXT_UBO% (
-    wget -nv -O %EXT_UBO% %EXT_UBO_URL%
-)
-if EXIST %EXT_UBO% copy /Y %EXT_UBO% .\%CORE_DIR%\browser\extensions\ > NUL
+call :Install_extension ".\uBlock0@raymondhill.net.xpi" "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/addon-607454-latest.xpi"
 
 :: dotjs extension
-set EXT_DOTJS=".\jid0-HC7vB1GcMVr7IBB5B5ADUjTJB3U@jetpack.xpi"
-set EXT_DOTJS_URL="https://addons.mozilla.org/firefox/downloads/latest/285518/platform:5/addon-285518-latest.xpi"
-if NOT EXIST %EXT_DOTJS% (
-    wget -nv -O %EXT_DOTJS% %EXT_DOTJS_URL%
-)
-if EXIST %EXT_DOTJS% copy /Y %EXT_DOTJS% .\%CORE_DIR%\browser\extensions\ > NUL
+call :Install_extension ".\jid0-HC7vB1GcMVr7IBB5B5ADUjTJB3U@jetpack.xpi" "https://addons.mozilla.org/firefox/downloads/latest/285518/platform:5/addon-285518-latest.xpi"
 
 :: Always Right extension
-set EXT_AWR=".\jid0-SzimoL45Ib8OddgoUBG0buQmjec@jetpack.xpi"
-set EXT_AWR_URL="https://addons.mozilla.org/firefox/downloads/latest/273653/addon-273653-latest.xpi"
-if NOT EXIST %EXT_AWR% (
-    wget -nv -O %EXT_AWR% %EXT_AWR_URL%
-)
-if EXIST %EXT_AWR% copy /Y %EXT_AWR% .\%CORE_DIR%\browser\extensions\ > NUL
+call :Install_extension ".\jid0-SzimoL45Ib8OddgoUBG0buQmjec@jetpack.xpi" "https://addons.mozilla.org/firefox/downloads/latest/273653/addon-273653-latest.xpi"
+
+:: Copy as Markdown extension
+call :Install_extension ".\jid1-tfBgelm3d4bLkQ@jetpack.xpi" "https://addons.mozilla.org/firefox/downloads/latest/copy-as-markdown/addon-505088-latest.xpi"
 
 :: Start Firefox
 title %CD% - Started
@@ -120,8 +116,21 @@ wmic process where "name='%BINARY%'" get ExecutablePath /format:list 2> NUL | fi
 if NOT ERRORLEVEL 1 exit 1
 goto :EOF
 
+:Install_extension
+set EXT_NAME=%1
+set EXT_URL=%2
+if NOT EXIST %EXT_NAME% (
+    wget -nv -O %EXT_NAME% %EXT_URL%
+)
+if EXIST %EXT_NAME% copy /Y %EXT_NAME% .\%CORE_DIR%\browser\extensions\ > NUL
+goto :EOF
+
 :: Bookmarks
+Hungarian Dictionary - kw:hu - https://addons.mozilla.org/en-US/firefox/addon/hungarian-dictionary/
 I'm feeling luck - kw:1 - https://encrypted.google.com/search?btnI=1&pws=0&q=%s
+bgp.he.net - kw:w - http://bgp.he.net/ip/%s
+ip-info - kw:i - http://szepeviktor.github.io/ip-info/?%s
+Qwant - https://www.qwant.com/opensearch-ff.xml
 
 :: Google consent cookie
 document.cookie = "CONSENT=YES+HU.hu+V2;domain=.google.hu;expires=Sun, 10-Jan-2038 07:59:59 GMT;path=/";

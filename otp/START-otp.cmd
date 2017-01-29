@@ -2,14 +2,14 @@
 ::
 :: Browser appliance.
 ::
-:: INSTALLERS   :https://www.mozilla.org/en-US/firefox/all/#hu
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>
-:: DOCS         :https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
+:: INSTALLER    :https://www.mozilla.org/en-US/firefox/organizations/all/
 :: DEPENDS      :7za.exe from 7z*-extra.7z in http://sourceforge.net/projects/sevenzip/files/7-Zip/
 :: DEPENDS      :wget.exe https://eternallybored.org/misc/wget/ https://github.com/szepeviktor/windows-workstation#wget
+:: EXTRA_PREF   :user_pref("security.tls.version.min", 3);
 
 set HOME_URL="https://www.otpbank.hu/portal/hu/OTPdirekt/Belepes"
-set SETUP_URL="https://download.mozilla.org/?product=firefox-latest&os=win64&lang=hu"
+set SETUP_URL="https://download.mozilla.org/?product=firefox-45.6.0esr-SSL&os=win64&lang=hu"
 
 :: Make sure we are in batch file's directory
 cd /D %~dp0

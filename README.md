@@ -46,7 +46,7 @@ reg DELETE "HKCR\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 :: C:\Program Files\Windows Defender\MSASCui.exe
 :: https://www.raymond.cc/blog/how-to-disable-uninstall-or-remove-windows-defender-in-vista/
 "C:\Program Files\Windows Defender\mpcmdrun" -removedefinitions -all
-reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 0 /f
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 1 /f
 shutdown /t 0 /r
 :: Reboot to KNOPPIX (hit F8-F8-F8)
     ntfs-3g.real /dev/sda1 /mnt
@@ -135,6 +135,8 @@ powercfg.cpl
 ```batch
 reg ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWinKeys" /t REG_DWORD /d 1 /f
 ```
+
+https://support.microsoft.com/help/12445/windows-keyboard-shortcuts
 
 #### Show known file extensions (user)
 

@@ -364,7 +364,7 @@ user_pref("security.sri.enable",		true);
 // https://en.wikipedia.org/wiki/Do_not_track_header
 // https://dnt-dashboard.mozilla.org
 // https://github.com/pyllyukko/user.js/issues/11
-//user_pref("privacy.donottrackheader.enabled",		true);
+user_pref("privacy.donottrackheader.enabled",		false);
 
 // http://kb.mozillazine.org/Network.http.sendRefererHeader#0
 // https://bugzilla.mozilla.org/show_bug.cgi?id=822869

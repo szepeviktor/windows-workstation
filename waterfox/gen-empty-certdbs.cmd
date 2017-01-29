@@ -12,6 +12,7 @@ mkdir empty-certdbs
 bin\certutil.exe -d empty-certdbs\ -N --empty-password
 
 :: Add an existing certificate
+:: echo | openssl s_client -connect www.otpbankdirekt.hu:443 | openssl x509 -outform PEM -out www.otpbankdirekt.hu.pem
 wget -nv -O szepenet.pem http://ca.szepe.net/pem
 bin\certutil.exe -d empty-certdbs\ -A -i szepenet.pem -n szepenet -t "C,,"
 

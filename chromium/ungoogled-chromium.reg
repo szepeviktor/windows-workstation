@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; ChromiumURL handler version 2.0.0
+
+[-HKEY_CLASSES_ROOT\ChromiumURL]
+[-HKEY_LOCAL_MACHINE\Software\Classes\ChromiumURL]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\ChromiumURL]
+@="Chromium Document"
+"FriendlyTypeName"="Chromium Document"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\ChromiumURL\shell]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\ChromiumURL\shell\open]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\ChromiumURL\shell\open\command]
+@="\"C:\\usr\\ungoogled-chromium\\ungoogled-chrome.exe\" -- \"%1\""
+
+; http:
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice]
+Progid="ChromiumURL"
+
+; https:
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\https\UserChoice]
+Progid="ChromiumURL"

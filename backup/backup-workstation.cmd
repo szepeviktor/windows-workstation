@@ -20,16 +20,24 @@
 :START
 :: Everything is comment before this label
 
+:: @TODO revise items, move auth to %USERPROFILE%\
+
 :: Backup parameters
 set BACKUP_ROOT="E:\backup"
 :: No quotes!
 set ENC_KEY=C:\usr\backup\enc.key
-:: Things to backup
+
+:: Backup script
 set BCK_BACKUP="C:\usr\backup"
+:: File list ? +HKLM\
 set BCK_AUTH="C:\usr\backup\backup-auth.files"
+:: reg\ folder
 set BCK_REG="%USERPROFILE%\reg"
+:: Firefox bookmarks
 set BCK_FFDEV="C:\usr\ff-dev\places.sqlite"
+:: Tools
 set BCK_UTL="C:\usr\bin\*.cmd"
+:: Tools file list (result)
 set BCK_UTL_LIST="C:\usr\bin\utl-files.txt"
 
 :: UTF-8 output
@@ -67,7 +75,6 @@ call :ZPAQA utl %BCK_UTL%
 
 ::--------------------------------------
 
-:: ff-dev bookmarks
 call :ZPAQA ffdev %BCK_FFDEV%
 
 :: Total Commander settings

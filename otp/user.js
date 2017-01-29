@@ -718,3 +718,6 @@ user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 // e10s
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
+
+// OTP
+user_pref("security.tls.version.min", 3);

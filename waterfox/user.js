@@ -364,7 +364,7 @@ user_pref("security.sri.enable",		true);
 // https://en.wikipedia.org/wiki/Do_not_track_header
 // https://dnt-dashboard.mozilla.org
 // https://github.com/pyllyukko/user.js/issues/11
-//user_pref("privacy.donottrackheader.enabled",		true);
+user_pref("privacy.donottrackheader.enabled",		false);
 
 // http://kb.mozillazine.org/Network.http.sendRefererHeader#0
 // https://bugzilla.mozilla.org/show_bug.cgi?id=822869
@@ -736,3 +736,11 @@ user_pref("network.proxy.type", 1);
 user_pref("network.proxy.socks", "localhost");
 user_pref("network.proxy.socks_port", 4096);
 user_pref("network.proxy.socks_remote_dns", true);
+
+// -Ecosia
+user_pref("browser.search.defaultenginename.US", "data:text/plain,browser.search.defaultenginename.US=Google");
+user_pref("browser.search.order.US.1", "data:text/plain,browser.search.order.US.1=Google");
+user_pref("browser.search.defaultenginename", "Google");
+user_pref("browser.search.order.1", "Google");
+
+user_pref("browser.search.hiddenOneOffs", "Ecosia");
