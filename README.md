@@ -83,6 +83,8 @@ sfc /VERIFYONLY
 rem sfc /SCANNOW
 ```
 
+[Windows 10 version 1607 Error code: 0x8024200D WU_E_UH_NEEDANOTHERDOWNLOAD](https://msdn.microsoft.com/en-us/library/dd939837.aspx)
+
 ### Hardware related software
 
 #### BIOS update
@@ -385,9 +387,10 @@ wevtutil qe System "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:
 wevtutil qe ForwardedEvents "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:text /rd:true /c:1
 ```
 
-### Google Chrome portable
+### Google Chrome portable 64 bit
 
-1. http://portableapps.com/apps/internet/google_chrome_portable
+1. http://portableapps.com/apps/internet/google_chrome_portable / **64 bit**
+1. Extract with 7-Zip File Manager
 1. `find "DownloadURL=" App\AppInfo\installer.ini`
 1. `wget %DownloadURL%`
 1. `7za e *_chrome_installer.exe`
@@ -436,6 +439,25 @@ content-disposition = on
 #http_proxy = http://192.168.2.161:8080/
 #server_response = on
 #verbose = on
+```
+
+##### Replace Microsoft CA certificates
+
+```bash
+wget -nv -O- https://curl.haxx.se/ca/cacert.pem \
+    | csplit --suppress-matched --elide-empty-files --silent -f "ca-" -b "%03d.crt" - '/^$/' '{*}'
+rm -f ca-000.crt
+unix2dos *.crt
+```
+
+```batch
+:: Certificates / Computer account
+mmc
+
+FOR %%C IN (ca*.crt) DO (
+    certutil -addstore "Root" "%%C"
+    IF ERRORLEVEL 1 PAUSE
+)
 ```
 
 ### OpenSSL
