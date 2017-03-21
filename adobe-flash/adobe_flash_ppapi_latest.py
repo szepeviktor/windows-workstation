@@ -7,6 +7,7 @@
 # OLD-URL       :http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_@@_plugin.exe"
 # OLD-URL       :http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_@@_active_x.exe
 # LOCATION      :/usr/local/bin/adobe_flash_ppapi_latest.py
+# SHELL         :jq '.[] | select(.Name | contains("PPAPI")) | .download_url'
 
 import urllib
 import urllib2

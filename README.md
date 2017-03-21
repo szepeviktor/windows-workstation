@@ -624,6 +624,8 @@ chmod +x /usr/local/sbin/apt-cyg
 
 Application example: `fontforge`
 
+Connect to remote X11: `cygwin$ ssh -CXY user@example.com`
+
 ## Backup steps
 
 1. Run `backup-workstation.cmd` on Windows shutdown

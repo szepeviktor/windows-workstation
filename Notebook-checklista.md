@@ -1,15 +1,15 @@
 # Notebook checklista
 
-- karc-/kopásmentes
-- ventilátor hangja (felfordítva is)
+- karc- és kopásmentes
+- ventilátor hangja, felfordítva is
 - memória
 - kijelző pixelhiba
 - SSD meghajtó
 - DVD olvasó
-- touchpad, trackpoint, kamera, hangszóró, fejhallgató, mikrofon×2
+- touchpad, trackpoint, kamera, hangszóró, fejhallgató bement, mikrofon, mikrofon bemenet
 - akku élettartam
 - Windows COA
-- billentyűzet nyelve: ...
-- modell számot felírni: ...
+- billentyűzet nyelve: ____
+- modell számot felírni: ____
 
-Dátum: 2016. ...
+Dátum: 2017. ...
