@@ -311,13 +311,11 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Notifu](http://www.paralint.com/projects/notifu/#Download)
 - [Keypirinha](http://keypirinha.com/)
     - [System Commands](https://github.com/psistorm/keypirinha-systemcommands)
+- [ShareX](https://getsharex.com/)
 - [ConsoleZ](https://github.com/cbucher/console/wiki)
-- [Launchy](http://www.launchy.net/download.php#windows)
-    - https://github.com/Netrics/putty-launchy-plugin/releases
-    - http://sourceforge.net/projects/tasky-launchy/files/
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
-- [WinCompose](https://github.com/samhocevar/wincompose)
 - [Caret Premium Markdown Editor](https://caret.io/)
+- [WinCompose](https://github.com/samhocevar/wincompose)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
@@ -329,7 +327,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
 - [Media Player Classic - BE](https://sourceforge.net/projects/mpcbe/files/MPC-BE/)
-- [latest Skype.exe](http://mirror.szepe.net/software/Skype.exe)
+- [latest Skype](http://mirror.szepe.net/software)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
     - [Skype official full installer](http://www.skype.com/go/getskype-full)
     - Portable: `Skype.exe /datapath:"path\to\profiles" /removable`
@@ -359,7 +357,6 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - Adobe PSE
 - [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)
 - [Some PDF Images Extract](http://www.somepdf.com/downloads.html)
-- [HotShots](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=31#Downloads)
 - [Open Broadcaster Software](https://obsproject.com/download)
 - [Sizer](http://www.brianapps.net/sizer/)
 
