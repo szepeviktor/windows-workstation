@@ -298,6 +298,8 @@ Task Scheduler Library / Microsoft / Windows / UpdateOchestrator / Reboot right-
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRebootWithLoggedOnUsers" /t REG_DWORD /d 1 /f
 ```
 
+[Amphetamines](https://www.foolishit.com/free-tech-tools/amphetamines/)
+
 [chmod -x MusNotification.exe](http://superuser.com/a/1006199)
 
 [Windows Update MiniTool](http://forum.ru-board.com/topic.cgi?forum=5&topic=48142#2)
@@ -552,6 +554,7 @@ show_history_hits = no
 - [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
 
 - [NoVirusThanks tools](http://www.novirusthanks.org/)
+- [CryptoPrevent](https://www.foolishit.com/cryptoprevent-malware-prevention/)
 - [AdwCleaner](https://toolslib.net/downloads/viewdownload/1-adwcleaner/)
 - [Malwarebytes Anti-Malware](https://www.malwarebytes.org/antimalware/)
 - [Zemana AntiMalware](https://zemana.com/en-US/Download)
