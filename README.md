@@ -256,6 +256,8 @@ Tablet mode  ms-settings://tabletmode/
 * Certificate Manager  certmgr.msc
 * Mouse  main.cpl (Disable mouse shadow)
 * Time and Date  timedate.cpl (Analogue clock)
+
+* Task View shell:::{3080F90E-D7AD-11D9-BD98-0000947B0257} (Virtual desktops)
 ```
 
 See also: http://ss64.com/nt/shell.html and `utl\shell-commands.cmd` for `shell::` commands.
