@@ -744,3 +744,6 @@ user_pref("browser.search.defaultenginename", "Google");
 user_pref("browser.search.order.1", "Google");
 
 user_pref("browser.search.hiddenOneOffs", "Ecosia");
+
+// View source
+user_pref("view_source.wrap_long_lines", true);

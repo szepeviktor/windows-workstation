@@ -1,9 +1,8 @@
-@echo off
+rem @echo off
 ::
 :: Disposable browser.
 ::
-:: INSTALLERS   :https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora/
-:: LANGUAGES    :https://www.mozilla.org/en-US/firefox/developer/all/
+:: INSTALLERS   :https://www.waterfoxproject.org/downloads
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>
 :: DOCS         :https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
 :: DEPENDS      :7za.exe from 7z*-extra.7z in http://sourceforge.net/projects/sevenzip/files/7-Zip/
@@ -13,9 +12,10 @@
 :: Visualize connections: https://addons.mozilla.org/en-US/firefox/addon/lightbeam/
 
 :: No trailing backslash in RAMDISK
-set RAMDISK="F:\ff-dev"
+set RAMDISK="F:\waterfox1"
 set HOME_URL="https://szepe.net/"
-set SETUP_URL="https://storage-waterfox.netdna-ssl.com/releases/win64/installer/Waterfox 46.0.1 Setup.exe"
+:: https://www.waterfoxproject.org/update/win64/54.0.1/en-US/release/update.xml
+set SETUP_URL="https://storage-waterfox.netdna-ssl.com/releases/win64/installer/Waterfox%2054.0.1%20Setup.exe"
 set SETUP_WILDCARD=Waterfox*Setup.exe
 set CORE_DIR=core
 set BINARY=waterfox.exe
@@ -56,6 +56,7 @@ title %CD%
 
 :: Prevent pending updates
 rmdir /Q /S %LOCALAPPDATA%\Mozilla\Firefox\firefox\updates\ > NUL 2>&1
+del /Q .\%CORE_DIR%\updater.exe > NUL 2>&1
 
 :: Create profile directory
 mkdir %PROFILEDIR%
@@ -79,6 +80,10 @@ rem copy "%SystemRoot%\SysWOW64\Macromed\Flash\NPSWF32_"*.dll "%CORE_DIR%\plugin
 if EXIST .\search-google1.xml (
     mkdir %PROFILEDIR%\searchplugins
     copy /Y .\search-google1.xml %PROFILEDIR%\searchplugins\ > NUL
+)
+if EXIST .\search-google-ipv6.xml (
+    mkdir %PROFILEDIR%\searchplugins
+    copy /Y .\search-google-ipv6.xml %PROFILEDIR%\searchplugins\ > NUL
 )
 
 :: Extension version check (XML response)
@@ -130,6 +135,7 @@ Hungarian Dictionary - kw:hu - https://addons.mozilla.org/en-US/firefox/addon/hu
 I'm feeling luck - kw:1 - https://encrypted.google.com/search?btnI=1&pws=0&q=%s
 bgp.he.net - kw:w - http://bgp.he.net/ip/%s
 ip-info - kw:i - http://szepeviktor.github.io/ip-info/?%s
+mxtoolbox blacklists - kw:b - http://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a%s
 Qwant - https://www.qwant.com/opensearch-ff.xml
 
 :: Google consent cookie

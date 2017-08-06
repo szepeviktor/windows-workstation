@@ -1,0 +1,17 @@
+<OpenSearchDescription xmlns:moz="http://www.mozilla.org/2006/browser/search/" xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Google IPv6</ShortName>
+  <Description>Search Google over IPv6 through HTTPS</Description>
+  <Attribution>Search over IPv6, courtesy of Google Inc.</Attribution>
+  <Developer>Slawek Ligus</Developer>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image height="16" width="16"
+    type="image/x-icon">https://ipv6.google.com/favicon.ico
+  </Image>
+  <moz:SearchForm>https://ipv6.google.com</moz:SearchForm>
+  <Url type="text/html" method="GET" template="https://ipv6.google.com/search">
+  <Param name="q" value="{searchTerms}"/>
+  </Url>
+  <Url type="application/x-suggestions+json" method="GET"
+    template="https://suggestqueries.google.com/complete/search?client=firefox&amp;q={searchTerms}&amp;hl={language}">
+  </Url>
+</OpenSearchDescription>
