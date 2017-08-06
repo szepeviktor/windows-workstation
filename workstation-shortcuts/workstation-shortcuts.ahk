@@ -2,7 +2,7 @@
 # Assign Windows key and other shortcuts.
 #
 # ENCODING      :ANSI or UTF-8 BOM
-# VERSION       :0.2.0
+# VERSION       :0.2.1
 # DATE          :2015-09-18
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
@@ -47,6 +47,10 @@ ExitHandler:
 ExitApp
 Return
 
+SetCapsLockState, AlwaysOff 
+Capslock::Shift
+Return
+
 #0::
 Run, "%ComSpec%" /K cd %TMP%
 TrayTip, cmd, Command Prompt, 5, 1+16
@@ -58,8 +62,14 @@ TrayTip, >8, Snipping Tool, 5, 1+16
 Return
 
 #2::
-Run, "StikyNot.exe"
+Run, "shell:AppsFolder\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App"
 TrayTip, Sticky Notes,, 5, 1+16
+Return
+
+#3::
+FormatTime, CurrentDateTime,, yyyyMMdd
+SendInput %CurrentDateTime%
+TrayTip, Today,, 5, 1+16
 Return
 
 #a::
@@ -125,6 +135,23 @@ Return
 #y::
 Run, "%UsrDir%\bin\puttytray.exe" -load vps
 TrayTip, Putty, SSH connection to mail.szepe.net, 5, 1+16
+Return
+
+~LAlt & WheelUp::
+;                         "A" The Active Window
+ControlGetFocus, fcontrol, A
+Loop 2
+    ; Scroll left
+    ;       WM_HSCROLL, SB_LINELEFT
+    SendMessage, 0x114, 0, 0, %fcontrol%, A
+Return
+
+; https://wiki.mozilla.org/Gecko:Mouse_Wheel_Scrolling
+~LAlt & WheelDown::
+ControlGetFocus, fcontrol, A
+Loop 2
+    ; Scroll right
+    SendMessage, 0x114, 1, 0, %fcontrol%, A
 Return
 
 ShutDownNow:
