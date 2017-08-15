@@ -26,3 +26,7 @@ https://f-droid.org/
 ### Synchronize contacts and calendar
 
 @TODO Horde SyncML
+
+### Battery
+
+[Anker](https://www.anker.com/de/products/219/291/Zusatzakkus-mit-kolossaler-Kapazit%C3%A4t)

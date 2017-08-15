@@ -12,6 +12,8 @@
 
 Windows phone activation: `slui.exe 4`
 
+[Settings / Privacy](https://fix10.isleaked.com/)
+
 Reinstall all Apps:
 
 ```powershell
