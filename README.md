@@ -324,8 +324,8 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [WinCompose](https://github.com/samhocevar/wincompose)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
-- [herdProtect](http://www.herdprotect.com/downloads.aspx) Portable
-- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.surfright.nl/en/downloads/beta) [forum](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
+- [herdProtect](http://www.herdprotect.com/installers/herdProtectScan_Portable.exe) Portable
+- [HitmanPro.Alert](https://www.hitmanpro.com/en/alert.aspx) Second opinion behavioral based Anti-Malware, [beta](https://www.wilderssecurity.com/threads/hitmanpro-alert-beta.394398/)
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [bsc 64](http://libbsc.com/)
 - [hubiC client](https://hubic.com/en/downloads)
@@ -554,8 +554,7 @@ show_history_hits = no
 
 ### Desktop malware cleaning
 
-- [herdProtect](http://www.herdprotect.com/downloads.aspx) (Portable)
-- [HitmanPro.Alert](http://www.surfright.nl/en/alert) Second opinion behavioral based Anti-Malware, [beta](http://www.wilderssecurity.com/threads/hitmanpro-alert-support-and-discussion-thread.324841/page-307)
+- herdProtect & HitmanPro.Alert
 
 - [NoVirusThanks tools](http://www.novirusthanks.org/)
 - [CryptoPrevent](https://www.foolishit.com/cryptoprevent-malware-prevention/)
@@ -568,6 +567,7 @@ show_history_hits = no
 - [Malwarebytes Anti-Rootkit Beta](https://www.malwarebytes.com/antirootkit/)
 - [Kaspersky TDSSKiller](https://usa.kaspersky.com/downloads/TDSSKiller)
 - https://www.sophos.com/products/free-tools/sophos-anti-rootkit.aspx
+- https://www.barkly.com/stackhackr
 
 ### Cygwin
 
