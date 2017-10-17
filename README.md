@@ -27,6 +27,9 @@ Get-AppxPackage *skypeapp* | Remove-AppxPackage
 ```
 
 ```batch
+:: Determines how long the system waits for services to stop after notifying the service that the system is shutting down
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Control" /v "WaitToKillServiceTimeout" /d 20000 /f
+
 :: Remove Windows Spying
 :: https://github.com/Nummer/Destroy-Windows-10-Spying
 
@@ -45,10 +48,14 @@ reg DELETE "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 reg DELETE "HKCR\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 
 :: Remove Defender
+:: Open Task Manager, select Startup tab, right click on "Windows Defender notification icon", click Disable
+:: GPO: Computer Configuration > Administrative Templates > Windows Components > Windows Defender
+:: reg QUERY "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /d 1 /f
 :: C:\Program Files\Windows Defender\MSASCui.exe
 :: https://www.raymond.cc/blog/how-to-disable-uninstall-or-remove-windows-defender-in-vista/
 "C:\Program Files\Windows Defender\mpcmdrun" -removedefinitions -all
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 1 /f
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /v "Start" /d 3 /f
 shutdown /t 0 /r
 :: Reboot to KNOPPIX (hit F8-F8-F8)
     ntfs-3g.real /dev/sda1 /mnt
@@ -324,8 +331,9 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [WinCompose](https://github.com/samhocevar/wincompose)
 - [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
-- [herdProtect](http://www.herdprotect.com/installers/herdProtectScan_Portable.exe) Portable
 - [HitmanPro.Alert](https://www.hitmanpro.com/en/alert.aspx) Second opinion behavioral based Anti-Malware, [beta](https://www.wilderssecurity.com/threads/hitmanpro-alert-beta.394398/)
+- [Kaspersky Security Scan](https://usa.kaspersky.com/free-virus-scan)
+- [herdProtect](http://www.herdprotect.com/installers/herdProtectScan_Portable.exe) Portable
 - [zpaq 64](http://mattmahoney.net/dc/zpaq.html)
 - [bsc 64](http://libbsc.com/)
 - [hubiC client](https://hubic.com/en/downloads)
@@ -554,7 +562,7 @@ show_history_hits = no
 
 ### Desktop malware cleaning
 
-- herdProtect & HitmanPro.Alert
+- HitmanPro.Alert & herdProtect
 
 - [NoVirusThanks tools](http://www.novirusthanks.org/)
 - [CryptoPrevent](https://www.foolishit.com/cryptoprevent-malware-prevention/)
