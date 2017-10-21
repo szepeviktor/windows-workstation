@@ -15,8 +15,10 @@ https://f-droid.org/
 
 ### Recovery
 
+- [adb](https://wiki.lineageos.org/adb_fastboot_guide.html#on-windows)
 - [TWRP](https://twrp.me/Devices/)
 - [ClockWorkMod](https://theunlockr.com/2014/02/27/install-clockworkmod-recovery-samsung-galaxy-xcover-2-gt-s7710/)
+- `dd if=/dev/block/mmcblk0p25 bs=1M of=/mnt/extp1/mmcblk0p25.img`
 
 ### ROMs
 
