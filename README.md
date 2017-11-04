@@ -638,6 +638,8 @@ Application example: `fontforge`
 
 Connect to remote X11: `cygwin$ ssh -CXY user@example.com`
 
+Also: https://sourceforge.net/projects/vcxsrv/
+
 ## Backup steps
 
 1. Run `backup-workstation.cmd` on Windows shutdown
