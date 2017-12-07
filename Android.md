@@ -22,8 +22,13 @@ https://f-droid.org/
 
 ### ROMs
 
+- [Samsung S7710XXANI3](https://www.sammobile.com/firmwares/galaxy-xcover2/GT-S7710/XEH/download/S7710XXANI3/39022/)
 - [OmniROM](https://dl.omnirom.org/)
 - [LineageOS](https://download.lineageos.org/)
+
+Check your ROM CSC by dialling `*#1234#`
+
+PDA represent your build version - `Build: GINGERBREAD.XXLA6` then PDA version of your ROM is XXLA6
 
 ### Synchronize contacts and calendar
 
@@ -32,3 +37,15 @@ https://f-droid.org/
 ### Battery
 
 [Anker](https://www.anker.com/de/products/219/291/Zusatzakkus-mit-kolossaler-Kapazit%C3%A4t)
+
+### Cross compile e2fsprogs
+
+```bash
+sudo apt-get install -y gcc-6-arm-linux-gnueabihf
+git clone "http://git.kernel.org/?p=fs/ext2/e2fsprogs.git"
+cd e2fsprogs/
+mkdir ${HOME}/e2fsprogs/build
+./configure --host=arm-unknown-linux-gnueabihf CC=arm-linux-gnueabihf-gcc-6 LDFLAGS=--static --prefix=${HOME}/e2fsprogs/build --disable-defrag
+make install
+file build/sbin/fsck.ext4
+```

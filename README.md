@@ -282,6 +282,7 @@ Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 - NTP server
 - Blocked SMTP port (25/TCP)
 - [BCP38 Spoofer](https://spoofer.caida.org/)
+- [Network Connectivity Status Indicator (NCSI)](https://technet.microsoft.com/en-us/library/cc766017%28WS.10%29.aspx) 
 
 #### Fonts
 
