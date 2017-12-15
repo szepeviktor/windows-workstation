@@ -96,6 +96,7 @@ user_pref("webgl.disabled",		true);
 user_pref("camera.control.face_detection.enabled",    false);
 
 // Default search engine
+// Can't be set programmatically!
 user_pref("browser.search.defaultenginename",		"Google");
 user_pref("browser.search.isUS",        false);
 user_pref("browser.search.geoSpecificDefaults",        false);
@@ -737,13 +738,8 @@ user_pref("network.proxy.socks", "localhost");
 user_pref("network.proxy.socks_port", 4096);
 user_pref("network.proxy.socks_remote_dns", true);
 
-// -Ecosia
-user_pref("browser.search.defaultenginename.US", "data:text/plain,browser.search.defaultenginename.US=Google");
-user_pref("browser.search.order.US.1", "data:text/plain,browser.search.order.US.1=Google");
-user_pref("browser.search.defaultenginename", "Google");
-user_pref("browser.search.order.1", "Google");
-
-user_pref("browser.search.hiddenOneOffs", "Ecosia");
-
 // View source
 user_pref("view_source.wrap_long_lines", true);
+
+// No smooth scrollin on Home and End keypresses
+user_pref("general.smoothScroll.other", false);

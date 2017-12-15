@@ -283,6 +283,7 @@ Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 - Blocked SMTP port (25/TCP)
 - [BCP38 Spoofer](https://spoofer.caida.org/)
 - [Network Connectivity Status Indicator (NCSI)](https://technet.microsoft.com/en-us/library/cc766017%28WS.10%29.aspx) 
+- [Windows PPPoE error codes](https://msdn.microsoft.com/en-us/library/windows/desktop/bb530704%28v=vs.85%29.aspx)
 
 #### Fonts
 

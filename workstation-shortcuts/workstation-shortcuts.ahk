@@ -2,7 +2,7 @@
 # Assign Windows key and other shortcuts.
 #
 # ENCODING      :ANSI or UTF-8 BOM
-# VERSION       :0.2.1
+# VERSION       :0.3.0
 # DATE          :2015-09-18
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
@@ -73,8 +73,9 @@ TrayTip, Today,, 5, 1+16
 Return
 
 #a::
-Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klón" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
-TrayTip, szerver4f, Virtualbox machine, 5, 1+16
+; Open Action Center
+ControlGet, ShellTray, Hwnd,, TrayButton1, ahk_class Shell_TrayWnd
+ControlClick,, ahk_id %ShellTray%
 Return
 
 #b::
@@ -90,6 +91,9 @@ TrayTip, CCalc, Console Calculator, 5, 1+16
 Return
 
 #d::
+Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klón" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
+TrayTip, szerver4f, Virtualbox machine, 5, 1+16
+Return
 
 #e::
 Run, "explorer.exe"
@@ -206,7 +210,7 @@ IfWinExist ahk_pid %FF_PID%
 }
 Else
 {
-    Run, "%USERPROFILE%\Desktop\ff-dev.lnk",,, CMD_PID
+    Run, "%USERPROFILE%\Desktop\Waterfox.lnk",,, CMD_PID
     Sleep 500
     WinHide, ahk_pid %CMD_PID%
 }
