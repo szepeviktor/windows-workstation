@@ -317,6 +317,11 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 
 [Windows Update MiniTool](http://forum.ru-board.com/topic.cgi?forum=5&topic=48142#2)
 
+### Mount an ISO image
+
+- Make it **read-only**
+- Double-click it
+
 ### Applications
 
 - [Dataram RAMDisk](http://memory.dataram.com/products-and-services/software/ramdisk/ramdisk-releases)
@@ -359,6 +364,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
     - https://chrome.google.com/webstore/detail/seoquake/akdgnmcogleenhbclghghlkkdndkjdjc
     - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
     - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
+    - Download: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=61.0&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc`
 - [UltraVNC 64](http://www.uvnc.com/downloads/ultravnc.html) Listen on port 5500
 - [UltraVNC SC](http://www.uvnc.com/docs/uvnc-sc.html)
 - [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
