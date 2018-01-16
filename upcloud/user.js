@@ -1237,10 +1237,11 @@ user_pref("loop.enabled", false);
 user_pref("network.http.referer.spoofSource", false);
 
 // Use SOCKS proxy
-user_pref("network.proxy.socks", "localhost");
-user_pref("network.proxy.socks_port", 4096);
-user_pref("network.proxy.socks_remote_dns", true);
-user_pref("network.proxy.type", 1);
+// // No proxy on UpCloud
+// user_pref("network.proxy.socks", "localhost");
+// user_pref("network.proxy.socks_port", 4096);
+// user_pref("network.proxy.socks_remote_dns", true);
+// user_pref("network.proxy.type", 1);
 
 // Enable PDF.js
 user_pref("pdfjs.disabled", false);
@@ -1251,7 +1252,7 @@ user_pref("places.history.enabled", true);
 // Flash plugin state: never activate
 user_pref("plugin.state.flash", 1);
 
-// Save the work of clearing on a RAMDisk
+// Save the work clearing on a RAMDisk
 user_pref("privacy.clearOnShutdown.cache", false);
 user_pref("privacy.clearOnShutdown.cookies", false);
 user_pref("privacy.clearOnShutdown.downloads", false);
@@ -1264,7 +1265,7 @@ user_pref("privacy.clearOnShutdown.sessions", false);
 // Do not use DNT
 user_pref("privacy.donottrackheader.enabled", false);
 
-// Save the work of clearing on a RAMDisk
+// Save the work clearing on a RAMDisk
 user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 
 // Do not use tracking protection
