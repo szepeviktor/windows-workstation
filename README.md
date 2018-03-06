@@ -282,7 +282,9 @@ Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 - NTP server
 - Blocked SMTP port (25/TCP)
 - [BCP38 Spoofer](https://spoofer.caida.org/)
-- [Network Connectivity Status Indicator (NCSI)](https://technet.microsoft.com/en-us/library/cc766017%28WS.10%29.aspx) 
+- [Network Connectivity Status Indicator (NCSI)](https://technet.microsoft.com/en-us/library/cc766017%28WS.10%29.aspx)
+  *internet online*
+- Skype Anycast IP `edge.skype.com`
 - [Windows PPPoE error codes](https://msdn.microsoft.com/en-us/library/windows/desktop/bb530704%28v=vs.85%29.aspx)
 
 #### Fonts
@@ -667,3 +669,8 @@ devmgmt.msc
 - http://www.mindenolcso.hu/hasznalt-monitor.html
 - http://www.marseus.hu/hu/memoria/szerver/
 - http://microstore.hu/index.php?manufacturer_id[]=503&path=20_94&route=product%2Fcategory
+
+## Data recovery
+
+- [NetCenter](http://adatmentes.netcenter.hu/hun/?modul=elerhetoseg)
+- [DeepSpar Disk Imager&trade; 4](http://www.deepspar.com/products-ds-disk-imager.html)
