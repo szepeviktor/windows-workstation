@@ -6,7 +6,7 @@
 
 ```bash
 URL="https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=global&pdhashedid=ejvcVtFQNPxjVH5w&model=RT-AC56U&callback="
-wget -qO- "$URL" | jq ".Result.Obj[0].Files[0].DownloadUrl.Global" | wget -i -
+wget -qO- "$URL" | jq -r ".Result.Obj[0].Files[0].DownloadUrl.Global" | wget -i -
 ```
 
 ### Router Login Name
