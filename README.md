@@ -326,8 +326,9 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 
 ### Applications
 
-- [Dataram RAMDisk](http://memory.dataram.com/products-and-services/software/ramdisk/ramdisk-releases)
 - [Visual C++ Redist 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
+- [7-zip 64](http://www.7-zip.org/download.html)
+- [Dataram RAMDisk](http://memory.dataram.com/products-and-services/software/ramdisk/ramdisk-releases)
 - [Precise time for Windows](https://www.meinbergglobal.com/english/sw/ntp.htm) (ntpd)
 - [Startup Delayer 64](http://www.r2.com.au/page/products/download/startup-delayer/)
 - [Notifu](http://www.paralint.com/projects/notifu/#Download)
@@ -336,9 +337,8 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [ShareX](https://getsharex.com/)
 - [ConsoleZ](https://github.com/cbucher/console/wiki)
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
-- [Caret Premium Markdown Editor](https://caret.io/)
+- [Typora](https://typora.io/) - markdown editor
 - [WinCompose](https://github.com/samhocevar/wincompose)
-- [7-zip 64](http://www.7-zip.org/download.html)
 - [CCleaner 64](http://mirror.szepe.net/software/)
 - [HitmanPro.Alert](https://www.hitmanpro.com/en/alert.aspx) Second opinion behavioral based Anti-Malware, [beta](https://www.wilderssecurity.com/threads/hitmanpro-alert-beta.394398/)
 - [Kaspersky Security Scan](https://usa.kaspersky.com/free-virus-scan)
@@ -375,12 +375,12 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Libre Office 64](https://www.libreoffice.org/download/libreoffice-fresh/?type=win-x86_64&lang=hu)
 - [MuseScore 32](https://musescore.org/hu/let%C3%B6lt%C3%A9s)
 - [Miranda NG 64](http://www.miranda-ng.org/en/downloads/) SkypeWeb protocol
-- [GIMP 64](http://www.partha.com/)
+- [GIMP 64](https://www.gimp.org/downloads/devel/)
 - [Inkspace 64](http://www.partha.com/)
 - [RealWolrd Paint](http://www.rw-designer.com/image-editor)
-- Adobe PSE
-- [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)
-- [Some PDF Images Extract](http://www.somepdf.com/downloads.html)
+- [Adobe PSE](https://www.adobe.com/products/photoshop-elements.html)
+- [PDF-XChange Viewer](https://www.tracker-software.com/product/pdf-xchange-viewer)
+- [PDF-Tools](https://www.tracker-software.com/product/pdf-tools) - image extract
 - [Open Broadcaster Software](https://obsproject.com/download)
 - [Sizer](http://www.brianapps.net/sizer/)
 
