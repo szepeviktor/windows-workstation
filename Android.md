@@ -32,7 +32,7 @@ PDA represent your build version - `Build: GINGERBREAD.XXLA6` then PDA version o
 
 ### Synchronize contacts and calendar
 
-@TODO Horde SyncML
+Horde SyncML: [Nine - Email & Calendar](https://play.google.com/store/apps/details?id=com.ninefolders.hd3)
 
 ### Battery
 
