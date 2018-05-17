@@ -5,11 +5,12 @@
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>
 :: INSTALLER    :https://www.mozilla.org/en-US/firefox/organizations/all/
 :: DEPENDS      :7za.exe from 7z*-extra.7z in http://sourceforge.net/projects/sevenzip/files/7-Zip/
-:: DEPENDS      :wget.exe https://eternallybored.org/misc/wget/ https://github.com/szepeviktor/windows-workstation#wget
+:: DEPENDS      :wget.exe https://eternallybored.org/misc/wget/
+:: DOCS         :https://github.com/szepeviktor/windows-workstation#wget
 :: EXTRA_PREF   :user_pref("security.tls.version.min", 3);
 
 set HOME_URL="https://www.otpbank.hu/portal/hu/OTPdirekt/Belepes"
-set SETUP_URL="https://download.mozilla.org/?product=firefox-45.6.0esr-SSL&os=win64&lang=hu"
+set SETUP_URL="https://download.mozilla.org/?product=firefox-60.0esr-SSL&os=win64&lang=hu"
 
 :: Make sure we are in batch file's directory
 cd /D %~dp0
@@ -38,10 +39,10 @@ mkdir %PROFILEDIR%
 del /Q .\core\nssckbi.dll
 
 :: Premade certificate and key databases
-if EXIST .\certdbs\cert8.db if EXIST .\certdbs\key3.db if EXIST .\certdbs\secmod.db (
-    copy /Y .\certdbs\cert8.db %PROFILEDIR%\cert8.db
-    copy /Y .\certdbs\key3.db %PROFILEDIR%\key3.db
-    copy /Y .\certdbs\secmod.db %PROFILEDIR%\secmod.db
+if EXIST .\certdbs\cert9.db if EXIST .\certdbs\key4.db if EXIST .\certdbs\pkcs11.txt (
+    copy /Y .\certdbs\cert9.db %PROFILEDIR%\
+    copy /Y .\certdbs\key4.db %PROFILEDIR%\
+    copy /Y .\certdbs\pkcs11.txt %PROFILEDIR%\
 )
 
 :: Settings

@@ -564,6 +564,10 @@ show_scores = no
 show_history_hits = no
 ```
 
+### Synergy
+
+[Synerg 2](https://symless.com/synergy) Share one mouse and keyboard between multiple computers
+
 ### Virtualization
 
 - Hyper-V: enable in BIOS, `bcdedit /set hypervisorlaunchtype Auto` , `virtmgmt.msc`
