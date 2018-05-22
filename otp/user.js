@@ -96,7 +96,10 @@ user_pref("webgl.disabled",		true);
 user_pref("camera.control.face_detection.enabled",    false);
 
 // Default search engine
-//user_pref("browser.search.defaultenginename",		"DuckDuckGo");
+// Can't be set programmatically!
+user_pref("browser.search.defaultenginename",		"Google");
+user_pref("browser.search.isUS",        false);
+user_pref("browser.search.geoSpecificDefaults",        false);
 
 // http://kb.mozillazine.org/Clipboard.autocopy
 user_pref("clipboard.autocopy",		false);
@@ -176,7 +179,7 @@ user_pref("devtools.netmonitor.enabled", false);
  ******************************************************************************/
 
 // Require signatures
-//user_pref("xpinstall.signatures.required",   true);
+user_pref("xpinstall.signatures.required",   true);
 
 // Opt-out of add-on metadata updates
 // https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
@@ -262,7 +265,6 @@ user_pref("app.update.auto", false);
 // Disable updates
 user_pref("app.update.enabled", false);
 user_pref("app.update.service.enabled", false);
-user_pref("browser.search.update", false);
 user_pref("extensions.update.enabled", false);
 
 // CIS 2.3.4 Block Reported Web Forgeries
@@ -363,7 +365,7 @@ user_pref("security.sri.enable",		true);
 // https://en.wikipedia.org/wiki/Do_not_track_header
 // https://dnt-dashboard.mozilla.org
 // https://github.com/pyllyukko/user.js/issues/11
-//user_pref("privacy.donottrackheader.enabled",		true);
+user_pref("privacy.donottrackheader.enabled",		false);
 
 // http://kb.mozillazine.org/Network.http.sendRefererHeader#0
 // https://bugzilla.mozilla.org/show_bug.cgi?id=822869
@@ -500,8 +502,7 @@ user_pref("browser.newtab.url",		"about:blank");
 
 // CIS Version 1.2.0 October 21st, 2011 2.1.2 Enable Auto Notification of Outdated Plugins
 // https://wiki.mozilla.org/Firefox3.6/Plugin_Update_Awareness_Security_Review
-//user_pref("plugins.update.notifyUser",		true);
-user_pref("plugins.update.notifyUser",		false);
+user_pref("plugins.update.notifyUser",		true);
 
 // CIS Version 1.2.0 October 21st, 2011 2.1.3 Enable Information Bar for Outdated Plugins
 user_pref("plugins.hide_infobar_for_outdated_plugin",		false);
@@ -715,9 +716,18 @@ user_pref("browser.displayedE10SPrompt.1", 1);
 user_pref("browser.displayedE10SNotice", 4);
 user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
 
+/******************************************************************************
+ * Custom settings                                                            *
+ *                                                                            *
+ ******************************************************************************/
+
 // e10s
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
 
+// No smooth scrollin on Home and End keypresses
+user_pref("general.smoothScroll.other", false);
+
 // OTP
+user_pref("plugins.update.notifyUser", false);
 user_pref("security.tls.version.min", 3);

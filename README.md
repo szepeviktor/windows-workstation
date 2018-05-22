@@ -673,6 +673,7 @@ devmgmt.msc
 - http://www.mindenolcso.hu/hasznalt-monitor.html
 - http://www.marseus.hu/hu/memoria/szerver/
 - http://microstore.hu/index.php?manufacturer_id[]=503&path=20_94&route=product%2Fcategory
+- http://www.pckeyboard.com/page/category/UltraClassic
 
 ## Data recovery
 

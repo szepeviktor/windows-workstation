@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 ::
 :: Disposable browser.
 ::
@@ -15,7 +15,7 @@ rem @echo off
 set RAMDISK="F:\waterfox1"
 set HOME_URL="https://szepe.net/"
 :: https://www.waterfoxproject.org/update/win64/54.0.1/en-US/release/update.xml
-set SETUP_URL="https://storage-waterfox.netdna-ssl.com/releases/win64/installer/Waterfox%2054.0.1%20Setup.exe"
+set SETUP_URL="https://storage-waterfox.netdna-ssl.com/releases/win64/installer/Waterfox%2056.2.0%20Setup.exe"
 set SETUP_WILDCARD=Waterfox*Setup.exe
 set CORE_DIR=core
 set BINARY=waterfox.exe
@@ -66,10 +66,10 @@ if EXIST .\user.js copy /Y .\user.js %PROFILEDIR%\ > NUL
 if EXIST .\places.sqlite copy /Y .\places.sqlite %PROFILEDIR%\ > NUL
 
 :: szepenet CA
-if EXIST .\szepenet-cert8.db if EXIST .\szepenet-key3.db if EXIST .\szepenet-secmod.db (
-    copy /Y .\szepenet-cert8.db %PROFILEDIR%\cert8.db > NUL
-    copy /Y .\szepenet-key3.db %PROFILEDIR%\key3.db > NUL
-    copy /Y .\szepenet-secmod.db %PROFILEDIR%\secmod.db > NUL
+if EXIST .\certdbs\szepenet-cert8.db if EXIST .\certdbs\szepenet-key3.db if EXIST .\certdbs\szepenet-secmod.db (
+    copy /Y .\certdbs\szepenet-cert8.db %PROFILEDIR%\ > NUL
+    copy /Y .\certdbs\szepenet-key3.db %PROFILEDIR%\ > NUL
+    copy /Y .\certdbs\szepenet-secmod.db %PROFILEDIR%\ > NUL
 )
 
 :: Flash plugin
@@ -87,6 +87,7 @@ if EXIST .\search-google-ipv6.xml (
 )
 
 :: Extension version check (XML response)
+:: Latest version: https://addons.mozilla.org/firefox/downloads/latest/$SLUG/
 :: https://wiki.mozilla.org/AMO:Users/Checking_For_Updates
 :: https://addons.mozilla.org/update/VersionCheck.php?reqVersion=1&id=%EXT_ID%&version=%EXT_VER%&maxAppVersion=43.0&status=userEnabled&appID={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appVersion=46.0.1&appOS=WINNT&appABI=x86_64-msvc&locale=en-US&currentAppVersion=46.0.1&updateType=97&compatMode=normal
 
@@ -102,6 +103,9 @@ call :Install_extension ".\jid0-SzimoL45Ib8OddgoUBG0buQmjec@jetpack.xpi" "https:
 
 :: Copy as Markdown extension
 call :Install_extension ".\jid1-tfBgelm3d4bLkQ@jetpack.xpi" "https://addons.mozilla.org/firefox/downloads/latest/copy-as-markdown/addon-505088-latest.xpi"
+
+:: VivaldiFox
+call :Install_extension ".\vivaldifox-2.2-an+fx.xpi" "https://addons.mozilla.org/firefox/downloads/file/783770/vivaldifox-2.2-an+fx.xpi"
 
 :: Start Firefox
 title %CD% - Started
