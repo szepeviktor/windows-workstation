@@ -104,6 +104,7 @@ rem sfc /SCANNOW
 
 - [Intel® Driver Update Utility](http://www.intel.com/support/detect.htm)
 - [CPUZ](http://www.cpuid.com/softwares/cpu-z.html) Disable monitoring
+- [Intel® Power Gadget](https://software.intel.com/en-us/articles/intel-power-gadget-20)
 - [HWMonitor](http://www.cpuid.com/softwares/hwmonitor.html)
 - [S.M.A.R.T. status viewer](http://www.passmark.com/products/diskcheckup.htm)
 - [HP SoftPaq Download Manager](http://www8.hp.com/us/en/ads/clientmanagement/drivers-bios.html)
