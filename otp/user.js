@@ -721,6 +721,9 @@ user_pref("browser.urlbar.userMadeSearchSuggestionsChoice", true);
  *                                                                            *
  ******************************************************************************/
 
+// Disable extensions
+user_pref("extensions.enabledScopes", 0); // 0 = NONE
+
 // e10s
 user_pref("browser.tabs.remote", true);
 user_pref("browser.tabs.remote.autostart", true);
