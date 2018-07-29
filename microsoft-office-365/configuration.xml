@@ -1,0 +1,33 @@
+<!-- Office Deployment Tool 2016
+https://docs.microsoft.com/en-us/deployOffice/overview-of-the-office-2016-deployment-tool
+https://docs.microsoft.com/en-us/deployOffice/configuration-options-for-the-office-2016-deployment-tool
+setup.exe /download configuration.xml
+setup.exe /configure configuration.xml
+https://support.office.com/en-us/article/uninstall-office-from-a-pc-9dd49b83-264a-477a-8fcc-2fdf5dbf61d8
+
+O365HomePremRetail: https://officecdn.microsoft.com/db/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/hu-HU/O365HomePremRetail.img
+-->
+
+<Configuration>
+
+  <Add SourcePath="E:\O365\sources\" OfficeClientEdition="64" >
+    <Product ID="O365HomePremRetail">
+      <Language ID="hu-hu" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Excel" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <!-- <ExcludeApp ID="Outlook" /> -->
+      <ExcludeApp ID="PowerPoint" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Word" />
+    </Product>
+  </Add>
+
+  <Updates Enabled="FALSE" />
+
+  <Display Level="Full" AcceptEULA="TRUE" />
+
+</Configuration>

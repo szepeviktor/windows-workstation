@@ -1,6 +1,6 @@
 @echo off
 ::
-:: Browser appliance.
+:: Ephemeral banking appliance.
 ::
 :: AUTHOR       :Viktor Szépe <viktor@szepe.net>
 :: INSTALLER    :https://www.mozilla.org/en-US/firefox/organizations/all/
