@@ -540,9 +540,11 @@ See: [ff-dev](./ff-dev/)
 
 [Flash player](http://www.adobe.com/hu/products/flashplayer/distribution3.html)
 
-Bookmarks for Launchy: `browser.bookmarks.autoExportHTML = true`
+Bookmarks export for Keypirinha: `browser.bookmarks.autoExportHTML = true`
 
 Fullscreen screenshot: Shift + F2 `screenshot --fullpage --clipboard`
+
+`firefox.exe -screenshot https://example.com/` see https://developer.mozilla.org/en-US/Firefox/Headless_mode
 
 Web Developer extension: https://addons.mozilla.org/en-US/firefox/addon/web-developer/
 
