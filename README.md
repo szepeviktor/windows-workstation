@@ -57,6 +57,7 @@ reg DELETE "HKCR\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 1 /f
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /v "Start" /d 3 /f
 shutdown /t 0 /r
+:: https://www.balena.io/etcher/
 :: Reboot to KNOPPIX (hit F8-F8-F8)
     ntfs-3g.real /dev/sda1 /mnt
     mv "/mnt/Program Files/Windows Defender" "/mnt/Program Files/_Windows Defender"
@@ -411,7 +412,7 @@ wevtutil qe ForwardedEvents "/q:*[System[(Level=1  or Level=2 or Level=3)]]" /f:
 
 ### Google Chrome portable 64 bit
 
-1. http://portableapps.com/apps/internet/google_chrome_portable / **64 bit**
+1. https://portableapps.com/apps/internet/google-chrome-portable-64
 1. Extract with 7-Zip File Manager
 1. `find "DownloadURL=" App\AppInfo\installer.ini`
 1. `wget %DownloadURL%`
@@ -660,7 +661,7 @@ Also: https://sourceforge.net/projects/vcxsrv/
 ## Backup steps
 
 1. Run `backup-workstation.cmd` on Windows shutdown
-1. Have [hubiC client](https://hubic.com/en/downloads) back it up daily, keep 10 versions
+1. Have [Duplicati](https://www.duplicati.com/) back it up daily, keep 11 versions
 
 ## Remove unused drivers @yearly
 
