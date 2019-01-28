@@ -6,10 +6,10 @@
 - kijelző pixelhiba
 - SSD meghajtó
 - DVD olvasó
-- touchpad, trackpoint, kamera, hangszóró, fejhallgató bement, mikrofon, mikrofon bemenet
+- touchpad, trackpoint, kamera, hangszóró, fejhallgató aljzat, mikrofon, mikrofon aljzat
 - akku élettartam
 - Windows COA
 - billentyűzet nyelve: ____
-- modell számot felírni: ____
+- modell szám: ____
 
-Dátum: 2018. ...
+Dátum: 2019. ...
