@@ -358,7 +358,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
     - Portable: `Skype.exe /datapath:"path\to\profiles" /removable`
     - During call: Call / Call Technical Info
 - @TODO [tinyssh on Cygwin](http://tinyssh.org/faq.html)
-- [Chromium 64 / NIK stable / No sync / Archive](http://chromium.woolyss.com/)
+- [Chromium 64-bit Archive / Marmaduke ungoogled](http://chromium.woolyss.com/)
     - `--safebrowsing-disable-auto-update --lang=en-US --no-proxy-server --disable-translate --disk-cache-size=1`
     - https://fpdownload.adobe.com/pub/flashplayer/latest/help/install_flash_player_ppapi.exe
     - https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm
@@ -368,7 +368,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
     - https://chrome.google.com/webstore/detail/seoquake/akdgnmcogleenhbclghghlkkdndkjdjc
     - https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg
     - https://chrome.google.com/webstore/detail/project-naptha/molncoemjfmpgdkbdlbjmhlcgniigdnf
-    - Download: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=61.0&x=id%3D[EXTENSION_ID]%26installsource%3Dondemand%26uc`
+    - Install extensions: https://ungoogled-extension.github.io/
 - [UltraVNC 64](http://www.uvnc.com/downloads/ultravnc.html) Listen on port 5500
 - [UltraVNC SC](http://www.uvnc.com/docs/uvnc-sc.html)
 - [TeamViewer full version](https://www.teamviewer.com/en/download/windows.aspx)
