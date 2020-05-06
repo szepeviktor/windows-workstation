@@ -291,6 +291,7 @@ Check RTC: https://toolbox.googleapps.com/apps/browserinfo/
 
 #### Fonts
 
+- https://www.jetbrains.com/lp/mono/
 - https://github.com/andreberg/Meslo-Font/releases (LGS=line gap small, DZ=dotted zero)
 - http://www.fontsquirrel.com/fonts/open-sans
 
