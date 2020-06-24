@@ -143,6 +143,22 @@ powercfg.cpl
 :: Hibernate command: shutdown /t 0 /f /h
 ```
 
+### Disable Superfetch
+
+https://en.wikipedia.org/wiki/Windows_Vista_I/O_technologies#SuperFetch
+
+```batch
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v "EnableSuperfetch" /t REG_DWORD /d 0 /f
+```
+
+[Clear Pending Idle Tasks](https://helpdeskgeek.com/windows-7/easily-flush-the-windows-memory-cache/)
+
+### Clear Page File at Shutdown
+
+```batch
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "ClearPageFileAtShutdown" /t REG_DWORD /d 1/f
+```
+
 #### Disable Windows key combinations (user)
 
 ```batch
