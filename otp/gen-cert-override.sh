@@ -34,7 +34,7 @@ for CERT in "${DOMAINS[@]}"; do
 done
 
 # Generate cert_override.txt
-firefox-cert-override "${CERT_OVERRIDE_PARAMS[@]}" >certdbs/cert_override.txt
+firefox-cert-override "${CERT_OVERRIDE_PARAMS[@]}" >certdbs9/cert_override.txt
 
 # Clean up
 for CERT in "${DOMAINS[@]}"; do
