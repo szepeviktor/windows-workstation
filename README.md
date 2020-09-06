@@ -695,6 +695,8 @@ devmgmt.msc
 - http://www.marseus.hu/hu/memoria/szerver/
 - http://microstore.hu/index.php?manufacturer_id[]=503&path=20_94&route=product%2Fcategory
 - http://www.pckeyboard.com/page/category/UltraClassic
+- https://www.tripont.hu/termekek/billentyuzet
+- https://www.tripont.hu/termekek/serult-csomagolasu-termek
 
 ## Data recovery
 
