@@ -31,7 +31,7 @@ Get-AppxPackage *skypeapp* | Remove-AppxPackage
 reg ADD "HKLM\SYSTEM\CurrentControlSet\Control" /v "WaitToKillServiceTimeout" /d 20000 /f
 
 :: Remove Windows Spying
-:: https://github.com/Nummer/Destroy-Windows-10-Spying
+:: https://www.oo-software.com/en/shutup10
 
 :: Remove all built-in Apps
 :: http://www.thewindowsclub.com/ultimate-windows-tweaker-4-windows-10
