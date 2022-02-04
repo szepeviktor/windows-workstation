@@ -1,13 +1,19 @@
-// # user.js overrides
+
+
+// user.js overrides
 // Author: Viktor Szépe <viktor@szepe.net>
 // Firefox version: 96.0
+// Prepend: https://github.com/arkenfox/user.js/raw/96.0/user.js
 
 /*** NOTES ***/
 
 // - Default search engine cannot be set programmatically.
 // - Test leaks: https://xsinator.com/testing.html
-// - Check _user.js.parrot: about:config
 // - Check the console right after startup for any warnings/error messages related to non-applied prefs.
+// - Check _user.js.parrot: about:config
+
+user_pref("_user.js.parrot", "user-overrides.js parse error");
+
 
 /*** [SECTION 0200]: GEOLOCATION / LANGUAGE / LOCALE ***/
 
@@ -19,6 +25,11 @@ user_pref("geo.provider.network.url",
 user_pref("browser.search.region", "HU");
 user_pref("browser.search.isUS", false);
 // test: https://browserleaks.com/geo
+
+/*** [SECTION 1000]: DISK AVOIDANCE ***/
+
+// Enable disable disk cache as it is on a RAM disk
+user_pref("browser.cache.disk.enable", true);
 
 /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND ***/
 
@@ -128,8 +139,11 @@ user_pref("extensions.ublock0.adminSettings",
     '{"userSettings":{"advancedUserEnabled":true,"webrtcIPAddressHidden":true},"netWhitelist":"paypal.com\\nszepe.net"}'
 );
 
-// Wrap long line in view source
+// Wrap long lines in view source
 user_pref("view_source.wrap_long_lines", true);
 
 // Disable smooth scrolling on Home and End keypresses
 user_pref("general.smoothScroll.other", false);
+
+
+user_pref("_user.js.parrot", "SUCCESS: user.js and user-overrides.js are OK.");
