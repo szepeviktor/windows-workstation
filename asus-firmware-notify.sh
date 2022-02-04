@@ -14,7 +14,7 @@
 
 # Hardcoded model name and product ID hash
 #
-# https://www.asus.com/Networking/RTAC56U/HelpDesk_BIOS/
+# https://www.asus.com/supportonly/RT-AC56U/HelpDesk_BIOS/
 PRODUCT_MODEL="RT-AC56U"
 PRODUCT_ID="ejvcVtFQNPxjVH5w"
 
