@@ -95,10 +95,6 @@ user_pref("signon.rememberSignons", false);
 user_pref("mathml.disabled", true);
 // test: https://browserleaks.com/features#mathml
 
-// Disable in-content SVG
-user_pref("svg.disabled", true);
-// test: https://browserleaks.com/features#inlinesvg
-
 // Disable Graphite
 user_pref("gfx.font_rendering.graphite.enabled", false);
 
@@ -121,6 +117,9 @@ user_pref("dom.push.enabled", false);
 
 /*** [SECTION 9000]: PERSONAL ***/
 
+// Disable Pocket
+user_pref("extensions.pocket.enabled", false);
+
 // Disable autocopy on Linux
 user_pref("clipboard.autocopy", false);
 
@@ -139,16 +138,26 @@ user_pref("extensions.getAddons.cache.enabled", false);
 // Disable updates
 user_pref("extensions.update.enabled", false);
 
+// Wrap long lines in view source
+user_pref("view_source.wrap_long_lines", true);
+
+// Proper selection on double-click
+user_pref("layout.word_select.eat_space_to_next_word", false);
+user_pref("layout.word_select.stop_at_punctuation", false);
+
+// Disable smooth scrolling on Home and End keypresses
+user_pref("general.smoothScroll.other", false);
+
+// Disable Firefox Accounts & Sync
+user_pref("identity.fxaccounts.enabled", false);
+
+// Export bookmarks to an HTML file at shutdown
+user_pref("browser.bookmarks.autoExportHTML", true);
+
 // uBlock Origin extension configuration
 user_pref("extensions.ublock0.adminSettings",
     '{"userSettings":{"advancedUserEnabled":true,"webrtcIPAddressHidden":true},"netWhitelist":"paypal.com\\nszepe.net"}'
 );
-
-// Wrap long lines in view source
-user_pref("view_source.wrap_long_lines", true);
-
-// Disable smooth scrolling on Home and End keypresses
-user_pref("general.smoothScroll.other", false);
 
 
 user_pref("_user.js.parrot", "SUCCESS: user.js and user-overrides.js are OK.");
