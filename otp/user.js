@@ -1368,10 +1368,7 @@ user_pref("_user.js.parrot", "user-overrides.js parse error");
 /*** [SECTION 0200]: GEOLOCATION / LANGUAGE / LOCALE ***/
 
 // Hard-code geographic location
-user_pref("geo.enabled", true);
-user_pref("geo.provider.network.url",
-    'data:application/json,{"location": {"lat": 47.5404847, "lng": 19.0342201}, "accuracy": 10.0}'
-);
+user_pref("geo.enabled", false);
 user_pref("browser.search.region", "HU");
 user_pref("browser.search.isUS", false);
 // test: https://browserleaks.com/geo
@@ -1384,14 +1381,6 @@ user_pref("browser.send_pings", false);
 // <a href="https://www.mozilla.org/en-US/firefox/new/"
 //    target="_blank"
 //    ping="https://?????????????.x.pipedream.net">Click here then see empty requestbin</a>
-
-/*** [SECTION 0700]: DNS / DoH / PROXY / SOCKS / IPv6 ***/
-
-// Use SOCKS proxy by PuTTY
-user_pref("network.proxy.type", 1);
-user_pref("network.proxy.socks", "localhost");
-user_pref("network.proxy.socks_port", 4096);
-user_pref("network.proxy.socks_remote_dns", true);
 
 /*** [SECTION 1200]: HTTPS (SSL/TLS / OCSP / CERTS / HPKP) ***/
 
@@ -1478,11 +1467,6 @@ user_pref("extensions.getAddons.cache.enabled", false);
 
 // Disable updates
 user_pref("extensions.update.enabled", false);
-
-// uBlock Origin extension configuration
-user_pref("extensions.ublock0.adminSettings",
-    '{"userSettings":{"advancedUserEnabled":true,"webrtcIPAddressHidden":true},"netWhitelist":"paypal.com\\nszepe.net"}'
-);
 
 // Wrap long lines in view source
 user_pref("view_source.wrap_long_lines", true);
