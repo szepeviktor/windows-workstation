@@ -10,6 +10,8 @@
 
 [Download Windows 10 ISO tool from Microsoft](https://www.microsoft.com/en-us/software-download/windows10)
 
+[Windows and Office Genuine ISO Verifier](https://genuine-iso-verifier.weebly.com/)
+
 Windows phone activation: `slui.exe 4`
 
 [Settings / Privacy](https://fix10.isleaked.com/)
