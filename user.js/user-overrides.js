@@ -84,6 +84,11 @@ user_pref("extensions.autoDisableScopes", 11);
 user_pref("webgl.disabled", true);
 // test: https://browserleaks.com/webgl
 
+/*** [SECTION 5000]: OPTIONAL OPSEC ***/
+
+// Do not remember signongs
+user_pref("signon.rememberSignons", false);
+
 /*** [SECTION 5500]: OPTIONAL HARDENING ***/
 
 // Disable MathML
