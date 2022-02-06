@@ -58,6 +58,11 @@ user_pref("security.tls.version.max", 4);
 // test: https://browserleaks.com/ssl
 // test: https://www.ssllabs.com/ssltest/viewMyClient.html
 
+/*** [SECTION 1600]: HEADERS / REFERERS ***/
+
+// Always send a cross-origin referer
+user_pref("network.http.referer.XOriginPolicy", 0);
+
 /*** [SECTION 2000]: PLUGINS / MEDIA / WEBRTC ***/
 
 // Disable WebRTC
@@ -135,13 +140,10 @@ user_pref("extensions.update.enabled", false);
 // Opt-out of add-on metadata updates
 user_pref("extensions.getAddons.cache.enabled", false);
 
-// Disable updates
-user_pref("extensions.update.enabled", false);
-
 // Wrap long lines in view source
 user_pref("view_source.wrap_long_lines", true);
 
-// Proper selection on double-click
+// Proper text selection on double-click
 user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("layout.word_select.stop_at_punctuation", false);
 
