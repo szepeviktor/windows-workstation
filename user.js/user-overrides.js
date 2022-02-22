@@ -28,7 +28,7 @@ user_pref("browser.search.isUS", false);
 
 /*** [SECTION 1000]: DISK AVOIDANCE ***/
 
-// Enable disable disk cache as it is on a RAM disk
+// Enable disk cache as it is on a RAM disk
 user_pref("browser.cache.disk.enable", true);
 
 /*** [SECTION 0600]: BLOCK IMPLICIT OUTBOUND ***/
