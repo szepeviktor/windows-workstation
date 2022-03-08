@@ -85,6 +85,9 @@ user_pref("extensions.autoDisableScopes", 11);
 
 /*** [SECTION 4500]: RFP (RESIST FINGERPRINTING) ***/
 
+// Disable RFP letterboxing
+user_pref("privacy.resistFingerprinting.letterboxing", false);
+
 // Disable webGL
 user_pref("webgl.disabled", true);
 // test: https://browserleaks.com/webgl
