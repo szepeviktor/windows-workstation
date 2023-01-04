@@ -10,7 +10,7 @@ Save_certificate()
     local DOMAIN="$1"
 
     # Download certificate
-    openssl s_client -connect "${DOMAIN}:443" </dev/null | openssl x509 -outform PEM -out "${DOMAIN}.crt"
+    openssl s_client -connect "${DOMAIN}:443" -servername "${DOMAIN}" </dev/null | openssl x509 -outform PEM -out "${DOMAIN}.crt"
 }
 
 declare -a -r DOMAINS=(
@@ -18,6 +18,8 @@ declare -a -r DOMAINS=(
     www.otpbank.hu
     # OTPdirekt
     www.otpbankdirekt.hu
+    # Új OTPdirekt
+    internetbank.otpbank.hu
     # static assets
     cdnjs.cloudflare.com
     # Mastercard
@@ -29,7 +31,8 @@ set -e
 
 # Save certificates
 for CERT in "${DOMAINS[@]}"; do
-    Save_certificate "$CERT"
+    echo "${CERT} ..."
+    Save_certificate "${CERT}"
     CERT_OVERRIDE_PARAMS+=( "${CERT}:443=${CERT}.crt[U]" )
 done
 
