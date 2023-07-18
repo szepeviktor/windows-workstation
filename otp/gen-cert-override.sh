@@ -22,8 +22,6 @@ declare -a -r DOMAINS=(
     internetbank.otpbank.hu
     # static assets
     cdnjs.cloudflare.com
-    # Mastercard
-    cap.attempts.securecode.com
 )
 declare -a CERT_OVERRIDE_PARAMS=()
 
