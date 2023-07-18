@@ -57,7 +57,11 @@ reg DELETE "HKCR\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
 :: https://www.raymond.cc/blog/how-to-disable-uninstall-or-remove-windows-defender-in-vista/
 "C:\Program Files\Windows Defender\mpcmdrun" -removedefinitions -all
 reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /T REG_DWORD /d 1 /f
-reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /v "Start" /d 3 /f
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableBehaviorMonitoring" /T REG_DWORD /d 1 /f
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableOnAccessProtection" /T REG_DWORD /d 1 /f
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableRealtimeMonitoring" /T REG_DWORD /d 1 /f
+reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableScanOnRealtimeEnable" /T REG_DWORD /d 1 /f
+reg ADD "HKLM\SYSTEM\CurrentControlSet\Services\SecurityHealthService" /v "Start" /d 4 /f
 shutdown /t 0 /r
 :: https://www.balena.io/etcher/
 :: Reboot to KNOPPIX (hit F8-F8-F8)
@@ -68,6 +72,13 @@ shutdown /t 0 /r
 :: @FIXME Remove services, drivers: WdFilter.sys, WdNisDrv.sys
 rem sc delete WinDefend
 rem sc delete WdNisSvc
+
+:: Enable verbose startup, shutdown, logon, and logoff status messages
+reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "VerboseStatus" /T REG_DWORD /d 1 /f
+
+:: Disable Microsoft Compatibility Telemetry
+reg ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /T REG_DWORD /d 1 /f
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /DISABLE
 
 :: Disable SSDP Discovery service (enumerates UPnP devices)
 sc stop SSDPSRV
