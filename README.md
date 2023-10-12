@@ -371,7 +371,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [Shapeshifter](https://github.com/ffMathy/Shapeshifter/releases)
 - [Typora](https://typora.io/) - markdown editor
 - [WinCompose](https://github.com/samhocevar/wincompose)
-- [CCleaner 64](http://mirror.szepe.net/software/)
+- [CCleaner 64](https://www.ccleaner.com/ccleaner/builds)
 - [HitmanPro.Alert](https://www.hitmanpro.com/en/alert.aspx) Second opinion behavioral based Anti-Malware, [beta](https://www.wilderssecurity.com/threads/hitmanpro-alert-beta.394398/)
 - [Kaspersky Security Scan](https://usa.kaspersky.com/free-virus-scan)
 - [herdProtect](http://www.herdprotect.com/installers/herdProtectScan_Portable.exe) Portable
@@ -382,7 +382,7 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [IrfanView 64](http://www.irfanview.com/64bit.htm)
 - [DiffImg](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=11#Downloads)
 - [Media Player Classic - BE](https://sourceforge.net/projects/mpcbe/files/MPC-BE/)
-- [latest Skype](http://mirror.szepe.net/software)
+- [latest Skype](https://www.skype.com/en/get-skype/)
     - [Skype Utility Project](https://github.com/dlehn/Skype-Utility-Project/releases)
     - [Skype official full installer](http://www.skype.com/go/getskype-full)
     - Portable: `Skype.exe /datapath:"path\to\profiles" /removable`
@@ -415,8 +415,6 @@ reg ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoRe
 - [PDF-Tools](https://www.tracker-software.com/product/pdf-tools) - image extract
 - [Open Broadcaster Software](https://obsproject.com/download)
 - [Sizer](http://www.brianapps.net/sizer/)
-
-Also on http://mirror.szepe.net/software/
 
 ### Alert on Event log errors
 
