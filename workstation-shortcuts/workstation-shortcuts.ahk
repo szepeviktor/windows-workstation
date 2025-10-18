@@ -2,19 +2,19 @@
 # Assign Windows key and other shortcuts.
 #
 # ENCODING      :ANSI or UTF-8 BOM
-# VERSION       :0.3.1
+# VERSION       :0.3.2
 # DATE          :2015-09-18
 # AUTHOR        :Viktor Szépe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
 # LICENSE       :The MIT License (MIT)
 # AUTOHOTKEY    :1.1+
-# DEPENDS       :http://ahkscript.org/download/
-# DOCS          :http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts
+# DEPENDS       :https://www.autohotkey.com/download/
+# DOCS          :https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec
 # LOCATION      :C:\usr\workstation-shortcuts\workstation-shortcuts.ahk 
 */
 
 ; @TODO
-; - Compile https://www.autohotkey.com/docs/Scripts.htm#ahk2exe
+; - Compile https://www.autohotkey.com/docs/v1/Scripts.htm#ahk2exe
 
 /**
  * Syntax for hotkeys
@@ -23,11 +23,11 @@
  * ! ALT
  * + SHIFT
  * # WIN
- * other special keys: http://ahkscript.org/docs/commands/Send.htm
+ * other special keys: https://www.autohotkey.com/docs/v1/lib/Send.htm
  * not necessary: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoWinKeys=1
  */
 
-;Directives
+; Directives
 #SingleInstance
 #Persistent
 
@@ -92,8 +92,8 @@ Send ^x{Up}{F2}{Space}+{Insert}{Enter}^+{Delete}{Down}
 Return
 
 #7::
+; Type a with macron
 Send {U+0101}
-;Send {U+0304} ;COMBINING MACRON
 Return
 
 #a::
@@ -269,7 +269,6 @@ ShutDownGui() {
     BreakShutdown := 1
     Gui, Destroy
     Return
-
 }
 
 ShutDownIn(Seconds) {
@@ -284,7 +283,7 @@ ShutDownIn(Seconds) {
         }
     }
     Gui, Destroy
-    ;Backup
+    ; Backup
     TrayTip, Backup, Backing up ..., 120, 1+16
     RunWait, "%UsrDir%\backup\backup-workstation.cmd",, Max
     TrayTip, Shutdown, Shuting down ..., 60, 2+16
@@ -295,3 +294,4 @@ ProcessExist(Name){
 	Process, Exist, %Name%
 	Return Errorlevel
 }
+
