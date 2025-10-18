@@ -2,19 +2,19 @@
 # Assign Windows key and other shortcuts.
 #
 # ENCODING      :ANSI or UTF-8 BOM
-# VERSION       :0.3.0
+# VERSION       :0.3.2
 # DATE          :2015-09-18
-# AUTHOR        :Viktor Szépe <viktor@szepe.net>
+# AUTHOR        :Viktor SzÃ©pe <viktor@szepe.net>
 # URL           :https://github.com/szepeviktor/windows-workstation/blob/master/workstation-shortcuts
 # LICENSE       :The MIT License (MIT)
 # AUTOHOTKEY    :1.1+
-# DEPENDS       :http://ahkscript.org/download/
-# DOCS          :http://windows.microsoft.com/en-us/windows-10/keyboard-shortcuts
+# DEPENDS       :https://www.autohotkey.com/download/
+# DOCS          :https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec
 # LOCATION      :C:\usr\workstation-shortcuts\workstation-shortcuts.ahk 
 */
 
 ; @TODO
-; - Compile https://www.autohotkey.com/docs/Scripts.htm#ahk2exe
+; - Compile https://www.autohotkey.com/docs/v1/Scripts.htm#ahk2exe
 
 /**
  * Syntax for hotkeys
@@ -23,11 +23,11 @@
  * ! ALT
  * + SHIFT
  * # WIN
- * other special keys: http://ahkscript.org/docs/commands/Send.htm
+ * other special keys: https://www.autohotkey.com/docs/v1/lib/Send.htm
  * not necessary: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoWinKeys=1
  */
 
-;Directives
+; Directives
 #SingleInstance
 #Persistent
 
@@ -51,18 +51,22 @@ SetCapsLockState, AlwaysOff
 Capslock::Shift
 Return
 
+;MButton & WheelDown::
+;Send {Enter}
+;Return
+
 #0::
 Run, "%ComSpec%" /K cd %TMP%
 TrayTip, cmd, Command Prompt, 5, 1+16
 Return
 
 #1::
-Run, "%windir%\system32\SnippingTool.exe"
+Run, "%windir%\system32\SnippingTool.exe", %USERPROFILE%
 TrayTip, >8, Snipping Tool, 5, 1+16
 Return
 
 #2::
-Run, "shell:AppsFolder\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App"
+Run, "shell:AppsFolder\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe!App", %USERPROFILE%
 TrayTip, Sticky Notes,, 5, 1+16
 Return
 
@@ -72,6 +76,26 @@ SendInput %CurrentDateTime%
 TrayTip, Today,, 5, 1+16
 Return
 
+#4::
+SetKeyDelay 70
+/* Join Two Cells in Excel
+- Cut
+- Up
+- F2 (edit cell contents)
+- Space
+- Paste
+- Enter
+- Ctrl+Shift+Delete (delete cell)
+- Down
+*/
+Send ^x{Up}{F2}{Space}+{Insert}{Enter}^+{Delete}{Down}
+Return
+
+#7::
+; Type a with macron
+Send {U+0101}
+Return
+
 #a::
 ; Open Action Center
 ControlGet, ShellTray, Hwnd,, TrayButton1, ahk_class Shell_TrayWnd
@@ -79,19 +103,19 @@ ControlClick,, ahk_id %ShellTray%
 Return
 
 #b::
-Run "%UsrDir%\otp\START-otp.cmd"
+Run "%UsrDir%\otp\START-otp.cmd", %USERPROFILE%
 TrayTip, Browser Appliance,, 5, 1+16
 Return
 
 #c::
-Run, "%UsrDir%\bin\CCalc.exe"
+Run, "%UsrDir%\bin\CCalc.exe", %USERPROFILE%
 WinWait, Console Calculator
 WinActivate
 TrayTip, CCalc, Console Calculator, 5, 1+16
 Return
 
 #d::
-Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klón" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91"
+Run, "C:\a\Program Files\Oracle\VirtualBox\VirtualBox.exe" --comment "szerver4-klÃ³n" --startvm "c4db4f9b-60a6-473b-9219-1ad64854ba91", %USERPROFILE%
 TrayTip, szerver4f, Virtualbox machine, 5, 1+16
 Return
 
@@ -101,13 +125,13 @@ TrayTip, Explorer, Windows Explorer, 5, 1+16
 Return
 
 #i::
-Run, "%ProgramFiles%\IrfanView\i_view64.exe"
+Run, "%ProgramFiles%\IrfanView\i_view64.exe", %USERPROFILE%
 TrayTip, IrfanView, A compact`, easy to use image viewer, 5, 1+16
 Return
 
 #k::
 Launch_Mail::
-Run, "%UsrDir%\keepass\KeePass.exe"
+Run, "%UsrDir%\keepass\KeePass.exe", %USERPROFILE%
 TrayTip, KeePass, Authentication database, 5, 1+16
 Return
 
@@ -122,22 +146,23 @@ TrayTip, Computer Management,, 5, 1+16
 Return
 
 #t::
-Run, "%ProgramFiles%\totalcmd\TOTALCMD64.EXE"
+Run, "%ProgramFiles%\totalcmd\TOTALCMD64.EXE", %USERPROFILE%
 TrayTip, TCMD, Total Commander, 5, 1+16
 Return
 
 #v::
-Run, "SndVol.exe"
+Run, "SndVol.exe", %USERPROFILE%
 TrayTip, Volume Control,, 5, 1+16
 Return
 
 #w::
-Run, "%UsrDir%\bin\notepad2.exe"
+Sleep 300
+Run, "%UsrDir%\bin\notepad2.exe", %USERPROFILE%
 TrayTip, Notepad2,, 5, 1+16
 Return
 
 #y::
-Run, "%UsrDir%\bin\puttytray.exe" -load vps
+Run, "%UsrDir%\bin\putty.exe" -load szepe.contabo, %USERPROFILE%
 TrayTip, Putty, SSH connection to mail.szepe.net, 5, 1+16
 Return
 
@@ -183,7 +208,7 @@ SendMessage, 0x112, 0xF170, 2,, Program Manager
 Return
 
 ^!+c::
-Run, "diskpart.exe" /s "%UsrDir%\bin\cyg-disk.dpt"
+Run, "diskpart.exe" /s "%UsrDir%\bin\cyg-disk.dpt", %USERPROFILE%
 TrayTip, Cygwin mount,, 5, 1+16
 Return
 
@@ -197,7 +222,7 @@ Return
 ^!+m::
 ; Still 32 bit
 ProgramFilesX86 := A_ProgramFiles . (A_PtrSize=8 ? " (x86)" : "")
-Run, "%ProgramFilesX86%\MuseScore 2\bin\MuseScore.exe"
+Run, "%ProgramFilesX86%\MuseScore 2\bin\MuseScore.exe", %USERPROFILE%
 TrayTip, MuseScore,, 5, 1+16
 Return
 
@@ -218,8 +243,8 @@ TrayTip, Firefox, Mozilla Firefox browser, 5, 1+16
 Return
 
 #f::
-Run %USERPROFILE%\Desktop\v-fõkönyv.lnk
-TrayTip, fõkönyv,, 5, 1+16
+Run %USERPROFILE%\Desktop\v-fÃµkÃ¶nyv.lnk, %USERPROFILE%\Desktop
+TrayTip, fÃµkÃ¶nyv,, 5, 1+16
 Return
 
 
@@ -227,7 +252,7 @@ Return
 ;^!x::ControlClick, Start1, ahk_class Shell_TrayWnd,, R
 
 ^!p::
-Run "C:\a\Program Files (x86)\Adobe\Photoshop Elements 11\PhotoshopElementsEditor.exe"
+Run "C:\a\Program Files (x86)\Adobe\Photoshop Elements 11\PhotoshopElementsEditor.exe", %USERPROFILE%
 TrayTip, PSE, Photoshop Elements, 5, 1+16
 Return
 
@@ -244,7 +269,6 @@ ShutDownGui() {
     BreakShutdown := 1
     Gui, Destroy
     Return
-
 }
 
 ShutDownIn(Seconds) {
@@ -259,7 +283,7 @@ ShutDownIn(Seconds) {
         }
     }
     Gui, Destroy
-    ;Backup
+    ; Backup
     TrayTip, Backup, Backing up ..., 120, 1+16
     RunWait, "%UsrDir%\backup\backup-workstation.cmd",, Max
     TrayTip, Shutdown, Shuting down ..., 60, 2+16
@@ -270,3 +294,4 @@ ProcessExist(Name){
 	Process, Exist, %Name%
 	Return Errorlevel
 }
+
