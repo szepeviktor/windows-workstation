@@ -1,0 +1,52 @@
+Windows Registry Editor Version 5.00
+
+; ============================
+; 1) Application registration
+; ============================
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher]
+@="UrlCatcher"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\DefaultIcon]
+@="\"C:\\usr\\bin\\UrlCatcher.exe\",0"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\shell]
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\shell\open]
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\shell\open\command]
+@="\"C:\\usr\\bin\\UrlCatcher.exe\" \"%1\""
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\Capabilities]
+"ApplicationName"="UrlCatcher"
+"ApplicationDescription"="Logs clicked URLs to desktop as .url files"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\Capabilities\FileAssociations]
+".htm"="UrlCatcherHTML"
+".html"="UrlCatcherHTML"
+
+[HKEY_CURRENT_USER\Software\Clients\StartMenuInternet\UrlCatcher\Capabilities\URLAssociations]
+"http"="UrlCatcherURL"
+"https"="UrlCatcherURL"
+
+[HKEY_CURRENT_USER\Software\RegisteredApplications]
+"UrlCatcher"="Software\\Clients\\StartMenuInternet\\UrlCatcher\\Capabilities"
+
+
+; ============================
+; 2) ProgID for URL protocols
+; ============================
+
+[HKEY_CURRENT_USER\Software\Classes\UrlCatcherURL]
+@="UrlCatcher URL Handler"
+"URL Protocol"=""
+
+[HKEY_CURRENT_USER\Software\Classes\UrlCatcherURL\DefaultIcon]
+@="\"C:\\usr\\bin\\UrlCatcher.exe\",0"
+
+[HKEY_CURRENT_USER\Software\Classes\UrlCatcherURL\shell]
+
+[HKEY_CURRENT_USER\Software\Classes\UrlCatcherURL\shell\open]
+
+[HKEY_CURRENT_USER\Software\Classes\UrlCatcherURL\shell\open\command]
+@="\"C:\\usr\\bin\\UrlCatcher.exe\" \"%1\""
